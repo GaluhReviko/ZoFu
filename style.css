@@ -11,6 +11,47 @@
   background-size: cover;
 }
 
+
+/* lupa pass */
+.reset {
+  background-image: url("img/image.jpg");
+  background-size: cover;
+}
+.reset_link {
+  margin: 30px 0;
+  text-align: left;
+  font-size: 16px;
+  color: #666666;
+}
+.reset_link a {
+  color: #2691d9;
+  text-decoration: none;
+}
+.reset_link a:hover {
+  text-decoration: underline;
+}
+/* end lupapass */
+
+/* verifikasi */
+.verify {
+  background-image: url("img/image.jpg");
+  background-size: cover;
+}
+.verify_link {
+  margin: 30px 0;
+  text-align: center;
+  font-size: 16px;
+  color: #666666;
+}
+.verify_link a {
+  color: #2691d9;
+  text-decoration: none;
+}
+.verify_link a:hover {
+  text-decoration: underline;
+}
+/* end verifikasi */
+
 /* Center daftar */
 
 .daftar {
@@ -215,8 +256,9 @@ form .txt_field {
 }
 
 .nav-item a:hover {
-  background-color: var(--primary);
+  /* background-color: var(--primary); */
   border-radius: 12px;
+  color: var(--primary) !important;
 }
 /* End Nav */
 
@@ -440,3 +482,22 @@ footer .credit a {
   background-color: var(--primary);
 }
 /* end booking */
+
+.pagination {
+  margin-top: -10px; /* Geser elemen ke atas sejauh 20 piksel, ganti dengan angka yang sesuai dengan preferensi Anda */
+}
+
+/* chart */
+.ramai{
+  text-align: center;
+  width: 80%;
+}
+
+#myChart {
+  display: block;
+  margin: 0 auto; /* Mengatur margin horizontal agar berada di tengah */
+  margin-left: 22%; /* Atur margin kiri sesuai kebutuhan */
+  margin-top: 20px; /* Atur margin atas sesuai kebutuhan */
+  max-width: 80%; /* Maksimum lebar grafik */
+}
+/* end chart */
