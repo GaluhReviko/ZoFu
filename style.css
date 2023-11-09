@@ -19,7 +19,7 @@
 }
 .reset_link {
   margin: 30px 0;
-  text-align: left;
+  text-align: center;
   font-size: 16px;
   color: #666666;
 }
@@ -248,7 +248,16 @@ form .txt_field {
 /* End SideBar */
 
 /* Nav  */
-
+.navbar {
+  display: none; /* Awalnya sembunyikan navbar */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  transition: top 0.3s; /* Menggunakan transisi untuk pergerakan navbar */
+  background-color: rgba(255, 255, 255, 0.724);
+  z-index: 1000;
+}
 
 .nav-item {
   margin: 3px !important;
@@ -323,7 +332,8 @@ form .txt_field {
 .about,
 .pembayaran,
 .traffic,
-.contact {
+.contact,
+.gallery {
   padding: 8rem 7% 1.4rem;
   color: black;
 }
@@ -331,7 +341,8 @@ form .txt_field {
 .pembayaran h2,
 .contact h2,
 .traffic h2,
-.lapangan h2 {
+.lapangan h2,
+.gallery h2 {
   text-align: center;
   font-size: 2rem;
   margin-bottom: 3rem;
@@ -340,7 +351,8 @@ form .txt_field {
 .pembayaran h2 span,
 .contact h2 span,
 .traffic h2 span,
-.lapangan h2 span {
+.lapangan h2 span,
+.gallery h2 span {
   color: var(--primary);
 }
 .about .row {
@@ -371,6 +383,15 @@ form .txt_field {
 .about .row .contain span {
   color: var(--primary);
 }
+
+.about-img img {
+  transition: transform 0.3s;
+}
+
+.about-img img:hover {
+  transform: scale(1.1);
+}
+
 
 .traffic .row {
   display: flex;
@@ -431,41 +452,6 @@ form .txt_field {
 }
 /* End Contact */
 
-/* footer */
-footer {
-  background-color: var(--primary);
-  text-align: center;
-  margin-top: 3rem;
-  padding-bottom: 3rem;
-}
-footer .social {
-  padding: 1rem 0;
-}
-footer .social a {
-  color: black;
-  margin: 1rem;
-}
-footer .social a:hover {
-  color: var(--bg);
-}
-footer .links {
-  margin-bottom: 2rem;
-}
-footer .links a {
-  color: black;
-  padding: 0.7rem 1rem;
-  text-decoration: none;
-}
-footer .links a:hover {
-  color: var(--bg);
-}
-footer .credit a {
-  color: var(--bg);
-  font-weight: 700;
-}
-
-/* End Footer */
-
 /* booking */
 #seatsDiagram td{
   padding: 1rem;
@@ -501,3 +487,54 @@ footer .credit a {
   max-width: 80%; /* Maksimum lebar grafik */
 }
 /* end chart */
+
+/* Gallery */
+.card {
+  border: none; /* Menghilangkan border pada elemen card */
+}
+
+.carousel {
+  max-width: 100%; /* Sesuaikan ukuran sesuai kebutuhan Anda */
+  margin: 0 auto;   /* Untuk membuat carousel berada di tengah halaman */
+  transition: transform 0.5s ease-in-out; /* Mengatur durasi dan timing function transisi */
+}
+
+.carousel-item .card {
+  max-width: 35%; /* Sesuaikan ukuran sesuai kebutuhan Anda */
+}
+
+.carousel-item .card img {
+  max-width: 100%; /* Menghindari gambar meluas melebihi card */
+}
+
+.carousel-inner {
+  transition: transform 0.6s ease-in-out; /* Mengatur transisi untuk slide */
+}
+
+.carousel-item {
+  display: inline-block; /* Menampilkan card secara berdampingan */
+  width: 100%; /* Mengisi seluruh lebar carousel */
+  transition: transform 0.6s ease-in-out; /* Mengatur transisi perpindahan card */
+}
+
+.card {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Bayangan card-carousel */
+  transition: transform 0.3s; /* Transisi saat menghover card-carousel */
+}
+
+.card:hover {
+  transform: scale(1.05); /* Perbesar card-carousel saat dihover */
+}
+
+.carousel-item .card {
+  margin-right: 10px; /* Atur margin kanan sesuai dengan preferensi Anda */
+  margin-left: 10px;  /* Atur margin kiri sesuai dengan preferensi Anda */
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* Atur bayangan sesuai dengan preferensi Anda */
+  transition: opacity 0.3s; /* Efek transisi untuk opasitas */
+  opacity: 1; /* Opasitas penuh untuk semua kartu */
+}
+
+.carousel-item .card:hover {
+  opacity: 0.7; /* Opasitas yang lebih rendah saat dihover */
+}
+/* End Gallery */

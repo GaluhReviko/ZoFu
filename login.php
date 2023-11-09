@@ -66,7 +66,7 @@ if (isset($_POST["login"])) {
         <span></span>
         <label>Password</label>
       </div>
-      <div class="reset_link"><a href="lupapass.php">Lupa password?</a></div>
+      <div class="reset_link"><a href="verifikasi.php">Lupa password?</a></div>
       <button class="button btn-inti" name="login" id="login">Login</button>
       <div class="signup_link">
         Belum punya akun? <a href="user/daftar.php">Daftar</a>

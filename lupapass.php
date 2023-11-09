@@ -26,7 +26,7 @@
         <label>Confirm Password</label>
       </div>
       <button class="button btn-inti" name="reset" id="reset">Reset</button>
-      <div class="signup_link">
+      <div class="reset_link">
         Kembali ke halaman <a href="login.php">Login</a>
       </div>
     </form>

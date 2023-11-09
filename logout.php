@@ -3,5 +3,6 @@ session_start();
 $_SESSION = [];
 session_unset();
 session_destroy();
-header("Location: rumah.html");
+header("Location: rumah.php");
 exit();
+?>
