@@ -221,7 +221,7 @@
   <script>
     feather.replace();
   </script>
-  <script src="/main.js"></script>
+  <script src="/main2.js"></script>
 </body>
 
 </html>
