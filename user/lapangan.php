@@ -188,7 +188,7 @@ if (isset($_POST["pesan"])) {
         <div class="row row-cols-1 row-cols-md-4">
           <?php foreach ($lapangan as $row) : ?>
             <div class="col">
-              <div class="card">
+              <div class="card mt-4">
                 <img src="../img/<?= $row["foto"]; ?>" alt="gambar lapangan" class="card-img-top">
                 <div class="card-body text-center">
                   <h5 class="card-title"><?= $row["nm"]; ?></h5>

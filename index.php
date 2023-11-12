@@ -55,7 +55,7 @@ if (isset($_POST["simpan"])) {
               <a class="nav-link active" aria-current="page" href="#about">About</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#traffic">Traffic</a>
+              <a class="nav-link active" aria-current="page" href="#gallery">Gallery</a>
             </li>
             <li class="nav-item">
               <a class="nav-link active" aria-current="page" href="#bayar">Tata Cara</a>
@@ -209,22 +209,68 @@ if (isset($_POST["simpan"])) {
   </section>
   <!-- End About -->
 
-    <!-- Traffic -->
-    <section class="traffic" id="traffic">
-    <h2 data-aos="fade-down" data-aos-duration="1000">
-      <span>Keramaian</span> Penyewa
+  <!-- Gallery -->
+  <section class="gallery" id="gallery">
+  <h2 data-aos="fade-down" data-aos-duration="1000">
+      <span>Gallery</span> Kami
     </h2>
-    <div class="row">
-      <div class="about-img" data-aos="fade-right" data-aos-duration="1000">
-        <img src="img/futsal.jpg" alt="" />
+    <p class="text-center m-3">
+      Kumpulan foto-foto yang ada di Zona futsal
+    </p>  
+  <div id="carouselExampleCaptions" class="carousel carousel-dark slide" data-bs-ride="false">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <div class="card-group">
+          <div class="card">
+            <img src="/img/badmintoon.jpg" class="card-img-top" alt="..." />
+
+          </div>
+          <div class="card">
+            <img src="/img/6473652695671.jpg" class="card-img-top" alt="..." />
+          </div>
+          <div class="card">
+            <img src="/img/badmintoon.jpg" class="card-img-top" alt="..." />
+          </div>
+        </div>
       </div>
-      <div class="contain" data-aos="fade-left" data-aos-duration="1000">
-        <h4 class="text-center mb-3">Kenapa Memilih kami?</h4>
-        <p>Sport Center adalah pusat olahraga yang menyediakan berbagai fasilitas dan layanan penyewaan lapangan untuk berbagai jenis olahraga. Tempat ini dirancang untuk memfasilitasi kegiatan olahraga dan rekreasi bagi individu, kelompok, dan komunitas yang memiliki minat dalam berpartisipasi dalam aktivitas fisik. Sport Center menawarkan beragam jenis lapangan yang dapat disewa untuk berbagai jenis olahraga, seperti sepak bola, futsal, tenis, basket, voli, dan masih banyak lagi. Setiap lapangan dilengkapi dengan fasilitas yang sesuai, termasuk garis-garis permainan, jaring, dan peralatan yang dibutuhkan untuk menjalankan aktivitas olahraga dengan lancar.</p>
+      <div class="carousel-item">
+        <div class="card-group">
+          <div class="card">
+            <img src="/img/footbal.jpg" class="card-img-top" alt="..." />
+          </div>
+          <div class="card">
+            <img src="/img/futsal.jpg" class="card-img-top" alt="..." />
+          </div>
+          <div class="card">
+            <img src="/img/badmintoon.jpg" class="card-img-top" alt="..." />
+          </div>
+        </div>
       </div>
+      <div class="carousel-item">
+        <div class="card-group">
+          <div class="card">
+            <img src="/img/footbal.jpg" class="card-img-top" alt="..." />
+          </div>
+          <div class="card">
+            <img src="/img/futsal.jpg" class="card-img-top" alt="..." />
+          </div>
+          <div class="card">
+            <img src="/img/6473652695671.jpg" class="card-img-top" alt="..." />
+          </div>
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
+        data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
+        data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      </button>
     </div>
+  </div>
   </section>
-  <!-- End Traffic -->
+  <!-- End Gallery -->
 
   <!-- Pembayaran -->
   <section class="pembayaran" id="bayar">
@@ -275,7 +321,6 @@ if (isset($_POST["simpan"])) {
             </div>
             <input type="text" name="" id="" placeholder="no telp" class="form-control" />
           </div>
-          <button type="submit" class="btn btn-inti mt-3">Kirim Pesan</button>
         </form>
       </div>
     </div>

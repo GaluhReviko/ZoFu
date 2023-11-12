@@ -14,15 +14,15 @@
 <body class="verify">
   <div class="center">
     <h1>Verifikasi Email</h1>
-    <form method="POST">
+    <form method="POST" action="send-password-reset.php">
       <div class="txt_field">
-        <input type="email" required>
+        <input type="email" name="email" required>
         <span></span>
         <label>Email</label>
       </div>
       <button class="button btn-inti" name="Verify" id="verify">Verifikasi</button>
       <div class="verify_link">
-        Kembali menuju <a href="login.php">Login</a> atau <a href="lupapass.php">Reset password</a>
+        Kembali menuju <a href="login.php">Login</a> atau <a href="reset-password.php">Reset password</a>
       </div>
     </form>
   </div>

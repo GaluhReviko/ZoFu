@@ -17,7 +17,7 @@ if (isset($_POST["login"])) {
   $password = $_POST["password"];
 
   $cariadmin = query("SELECT * FROM admin WHERE email = '$username' AND password = '$password'");
-  $cariuser = query("SELECT * FROM user WHERE email = '$username' AND password = '$password'");
+  $cariuser = query("SELECT * FROM user WHERE email = '$username'");
 
   if ($cariadmin) {
     // set session
@@ -26,6 +26,7 @@ if (isset($_POST["login"])) {
     header("Location: admin/admin.php");
   } else if ($cariuser) {
     // set session
+    password_verify($password, $cariuser[0]['password']);
     $_SESSION['email'] = $cariuser[0]['email'];
     $_SESSION['id_user'] = $cariuser[0]['id_user'];
     $_SESSION['role'] = "User";

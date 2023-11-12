@@ -411,7 +411,7 @@ if (isset($_POST["bayar"])) {
   </section>
 
   <!-- Footer -->
-  <footer class="footer mt-5 pt-5">
+  <footer class="footer_jadwal mt-5 pt-5">
     <div class="bg-light py-4 mt-4 pt-4">
       <div class="container text-center">
         <p class="text-muted mb-0 py-2 mt-2">© 2019 Bootstrapious All rights reserved.</p>

@@ -49,7 +49,7 @@
   </div>
   <!-- End Navbar -->
 
- 
+
 
   <!-- Jumbotron -->
   <section class="jumbotron" id="home">
@@ -82,64 +82,62 @@
 
   <!-- Gallery -->
   <section class="gallery" id="gallery">
-  <h2 data-aos="fade-down" data-aos-duration="1000">
+    <h2 data-aos="fade-down" data-aos-duration="1000">
       <span>Gallery</span> Kami
     </h2>
-    <p class="text-center m-5">
+    <p class="text-center m-3">
       Kumpulan foto-foto yang ada di Zona futsal
-    </p>  
-  <div id="carouselExampleCaptions" class="carousel carousel-dark slide" data-bs-ride="false">
-    <div class="carousel-inner">
-      <div class="carousel-item active">
-        <div class="card-group">
-          <div class="card">
-            <img src="/img/badmintoon.jpg" class="card-img-top" alt="..." />
+    </p>
+      <div id="carouselExampleCaptions" class="carousel carousel-dark slide" data-bs-ride="false">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <div class="card-group">
+              <div class="card">
+                <img src="/img/badmintoon.jpg" class="card-img-top" alt="..." />
 
+              </div>
+              <div class="card">
+                <img src="/img/6473652695671.jpg" class="card-img-top" alt="..." />
+              </div>
+              <div class="card">
+                <img src="/img/badmintoon.jpg" class="card-img-top" alt="..." />
+              </div>
+            </div>
           </div>
-          <div class="card">
-            <img src="/img/6473652695671.jpg" class="card-img-top" alt="..." />
+          <div class="carousel-item">
+            <div class="card-group">
+              <div class="card">
+                <img src="/img/footbal.jpg" class="card-img-top" alt="..." />
+              </div>
+              <div class="card">
+                <img src="/img/futsal.jpg" class="card-img-top" alt="..." />
+              </div>
+              <div class="card">
+                <img src="/img/badmintoon.jpg" class="card-img-top" alt="..." />
+              </div>
+            </div>
           </div>
-          <div class="card">
-            <img src="/img/badmintoon.jpg" class="card-img-top" alt="..." />
+          <div class="carousel-item">
+            <div class="card-group">
+              <div class="card">
+                <img src="/img/footbal.jpg" class="card-img-top" alt="..." />
+              </div>
+              <div class="card">
+                <img src="/img/futsal.jpg" class="card-img-top" alt="..." />
+              </div>
+              <div class="card">
+                <img src="/img/6473652695671.jpg" class="card-img-top" alt="..." />
+              </div>
+            </div>
           </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          </button>
         </div>
       </div>
-      <div class="carousel-item">
-        <div class="card-group">
-          <div class="card">
-            <img src="/img/footbal.jpg" class="card-img-top" alt="..." />
-          </div>
-          <div class="card">
-            <img src="/img/futsal.jpg" class="card-img-top" alt="..." />
-          </div>
-          <div class="card">
-            <img src="/img/badmintoon.jpg" class="card-img-top" alt="..." />
-          </div>
-        </div>
-      </div>
-      <div class="carousel-item">
-        <div class="card-group">
-          <div class="card">
-            <img src="/img/footbal.jpg" class="card-img-top" alt="..." />
-          </div>
-          <div class="card">
-            <img src="/img/futsal.jpg" class="card-img-top" alt="..." />
-          </div>
-          <div class="card">
-            <img src="/img/6473652695671.jpg" class="card-img-top" alt="..." />
-          </div>
-        </div>
-      </div>
-      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
-        data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      </button>
-      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
-        data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      </button>
-    </div>
-  </div>
   </section>
   <!-- End Gallery -->
 
