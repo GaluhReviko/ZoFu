@@ -10,15 +10,16 @@
   <link href="https://fonts.googleapis.com/css2?family=Noto+Serif&family=Poppins:ital,wght@0,100;0,300;0,400;0,700;1,700&display=swap" rel="stylesheet" />
   <link rel="icon" href="/img/soccer-ground.ico">
   <script src="https://unpkg.com/feather-icons"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
 <body>
   <!-- Navbar -->
   <div class="container">
-    <nav class="navbar fixed-top bg-body-secondary navbar-expand-lg">
+    <nav class="navbar fixed-top navbar-expand-lg" style="background-color: rgba(255, 255, 255, 0.724);">
       <div class="container">
         <a class="navbar-brand" href="#">
-          <img src="kon1.png" alt="Logo" width="70" height="70" class="d-inline-block align-text-top">
+          <img src="/img/soccer-ground.png" alt="Logo" width="45" height="45" class="d-inline-block align-text-top">
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -32,20 +33,23 @@
               <a class="nav-link active" aria-current="page" href="#about">About</a>
             </li>
             <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#gallery">Gallery</a>
+            </li>
+            <li class="nav-item">
               <a class="nav-link active" aria-current="page" href="#bayar">Tata Cara</a>
             </li>
             <li class="nav-item">
               <a class="nav-link active" aria-current="page" href="#contact">Kontak</a>
             </li>
           </ul>
-          <a href="login.php" class="btn btn-inti" type="submit">Login</a>
+          <a href="login.php" class="btn btn-inti" type="submit">login</a>
         </div>
       </div>
     </nav>
   </div>
   <!-- End Navbar -->
 
- 
+
 
   <!-- Jumbotron -->
   <section class="jumbotron" id="home">
@@ -75,6 +79,75 @@
     </div>
   </section>
   <!-- End About -->
+
+  <!-- Gallery -->
+  <section class="gallery" id="gallery">
+    <h2 data-aos="fade-down" data-aos-duration="1000">
+      <span>Gallery</span> Kami
+    </h2>
+    <p class="text-center m-3">
+      Kumpulan foto-foto yang ada di Zona futsal
+    </p>
+      <div id="carouselExampleCaptions" class="carousel carousel-dark slide" data-bs-ride="false">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <div class="card-group">
+              <div class="card">
+                <img src="/img/badmintoon.jpg" class="card-img-top" alt="..." />
+
+              </div>
+              <div class="card">
+                <img src="/img/6473652695671.jpg" class="card-img-top" alt="..." />
+              </div>
+              <div class="card">
+                <img src="/img/badmintoon.jpg" class="card-img-top" alt="..." />
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="card-group">
+              <div class="card">
+                <img src="/img/footbal.jpg" class="card-img-top" alt="..." />
+              </div>
+              <div class="card">
+                <img src="/img/futsal.jpg" class="card-img-top" alt="..." />
+              </div>
+              <div class="card">
+                <img src="/img/badmintoon.jpg" class="card-img-top" alt="..." />
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="card-group">
+              <div class="card">
+                <img src="/img/footbal.jpg" class="card-img-top" alt="..." />
+              </div>
+              <div class="card">
+                <img src="/img/futsal.jpg" class="card-img-top" alt="..." />
+              </div>
+              <div class="card">
+                <img src="/img/6473652695671.jpg" class="card-img-top" alt="..." />
+              </div>
+            </div>
+          </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          </button>
+        </div>
+      </div>
+  </section>
+  <!-- End Gallery -->
+
+  <!-- chart -->
+  <!-- <section class="ramai" id="ramai">
+    <div>
+        <canvas id="myChart"></canvas>
+    </div>
+  </section> -->
+  <!-- end chart -->
 
   <!-- Pembayaran -->
   <section class="pembayaran" id="bayar">
@@ -125,38 +198,28 @@
             </div>
             <input type="text" name="" id="" placeholder="no telp" class="form-control" />
           </div>
-          <button type="submit" class="btn btn-inti mt-3">Kirim Pesan</button>
         </form>
       </div>
     </div>
   </section>
   <!-- End Contact -->
 
-  <!-- footer -->
-  <footer>
-    <div class="social">
-      <a href="#"><i data-feather="instagram"></i></a>
-      <a href="#"><i data-feather="facebook"></i></a>
-      <a href="#"><i data-feather="phone"></i></a>
-    </div>
-
-    <div class="links">
-      <a href="#home">Home</a>
-      <a href="#about">Lapangan</a>
-      <a href="#bayar">Pembayaran</a>
-      <a href="#contact">Kontak</a>
-    </div>
-
-    <div class="credit">
-      <p>Created by <a href="#">Kelompok A5</a> &copy; 2023</p>
+  <!-- Footer -->
+  <footer class="footer mt-5">
+    <div class="bg-light py-4">
+      <div class="container text-center">
+        <p class="text-muted mb-0 py-2">© 2023 Zona-Futsal All rights reserved.</p>
+      </div>
     </div>
   </footer>
   <!-- End Footer -->
 
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
   <script>
     feather.replace();m
   </script>
+  <script src="/main2.js"></script>
 </body>
 
 </html>
