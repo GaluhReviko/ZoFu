@@ -37,6 +37,7 @@ $user = query("SELECT COUNT(id_user) AS jml_user FROM user")[0];
           <li class="list-group-item bg-transparent"><a href="lapangan.php">Data Lapangan</a></li>
           <li class="list-group-item bg-transparent"><a href="pesan.php">Data Pesanan</a></li>
           <li class="list-group-item bg-transparent"><a href="admin.php">Data Admin</a></li>
+          <li class="list-group-item bg-transparent"><a href="pengeluaran.php">Data Pengeluaran</a></li>
           <li class="list-group-item bg-transparent"></li>
         </ul>
         <a href="../logout.php" class="mt-5 btn btn-inti text-dark">Logout</a>
@@ -45,10 +46,9 @@ $user = query("SELECT COUNT(id_user) AS jml_user FROM user")[0];
         <!-- Konten -->
         <h3 class="judul">Home</h3>
         <hr>
-        <div class="row row-cols-1 row-cols-md-4 g-3 justify-content-center my-5 gap-3">
+        <div class="row row-cols-1 row-cols-md-4 g-3 justify-content-center  gap-3">
           <div class="col">
             <div class="card align-items-center">
-              <img src="../img/futsal.jpg" class="card-img-top" alt="...">
               <div class="card-body">
                 <h5 class="card-title">Jumlah Lapangan</h5>
                 <h2 class="card-text text-center"><?= $lapangan["jml_lapangan"]; ?></h2>
@@ -57,7 +57,6 @@ $user = query("SELECT COUNT(id_user) AS jml_user FROM user")[0];
           </div>
           <div class="col">
             <div class="card align-items-center">
-              <img src="../img/badmintoon.jpg" class="card-img-top" alt="...">
               <div class="card-body">
                 <h5 class="card-title">Jumlah Pesanan</h5>
                 <h2 class="card-text text-center"><?= $pesanan["jml_sewa"]; ?></h2>
@@ -66,7 +65,6 @@ $user = query("SELECT COUNT(id_user) AS jml_user FROM user")[0];
           </div>
           <div class="col">
             <div class="card align-items-center">
-              <img src="../img/basket.jpg" class="card-img-top" alt="...">
               <div class="card-body">
                 <h5 class="card-title">Jumlah Member</h5>
                 <h2 class="card-text text-center"><?= $user["jml_user"]; ?></h2>

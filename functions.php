@@ -269,6 +269,29 @@ function editAdmin($data)
   return mysqli_affected_rows($conn);
 }
 
+
+function tambahPengeluaran($data)
+{
+  global $conn;
+
+  $tanggalpengeluaran = $data["Tanggalpengeluaran"];
+  $keterangan = $data["Keterangan"];
+  $jumlah = $data["Jumlah"];
+
+  $query = "INSERT INTO pengeluaran (tanggalpengeluaran,keterangan,jumlah) VALUES ('$tanggalpengeluaran','$keterangan','$jumlah')";
+
+  mysqli_query($conn, $query);
+  return mysqli_affected_rows($conn);
+}
+
+function hapusPengeluaran($id)
+{
+  global $conn;
+  mysqli_query($conn, "DELETE FROM pengeluaran WHERE idpengeluaran = $id");
+
+  return mysqli_affected_rows($conn);
+}
+
 function konfirmasi($idsewa)
 {
   global $conn;

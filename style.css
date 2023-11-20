@@ -539,10 +539,18 @@ form .txt_field {
 }
 /* End Gallery */
 
-
-
 .footer_jadwal {
   position: fixed;
   bottom: 0;
   width: 100%;
+}
+
+.input-group input.form-control:focus {
+  border:1px solid #00000010;
+  box-shadow: none !important; /* Menghilangkan box shadow */
+}
+
+/* Jika ingin menghilangkan box shadow bahkan saat tidak dalam fokus */
+.input-group input.form-control {
+  box-shadow: none !important;
 }

@@ -25,11 +25,13 @@ $lapangan = query("SELECT * FROM lapangan LIMIT $awalData, $jmlHalamanPerData");
 if (isset($_POST["simpan"])) {
   if (tambahLpg($_POST) > 0) {
     echo "<script>
-          alert('Berhasil DiTambahkan');
+          alert('Data lapangan berhasil ditambahkan');
+          Location:'admin/lapangan.php';
           </script>";
   } else {
     echo "<script>
-          alert('Gagal DiTambahkan');
+          alert('Data lapangan gagal ditambahkan');
+          Location:'admin/lapangan.php';
           </script>";
   }
 }
@@ -37,11 +39,13 @@ if (isset($_POST["simpan"])) {
 if (isset($_POST["edit"])) {
   if (editLpg($_POST) > 0) {
     echo "<script>
-          alert('Berhasil Di Ubah');
+          alert('Lapangan berhasil di edit');
+          Location:'admin/lapangan.php';
           </script>";
   } else {
     echo "<script>
-          alert('Gagal Di Ubah');
+          alert('Lapangan berhasil di edit');
+          Location:'admin/lapangan.php';
           </script>";
   }
 }
@@ -57,6 +61,7 @@ if (isset($_POST["edit"])) {
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="../style.css">
   <link rel="icon" href="/img/soccer-ground.ico">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
   <title>Data Lapangan</title>
 </head>
@@ -75,6 +80,7 @@ if (isset($_POST["edit"])) {
           <li class="list-group-item bg-transparent"><a href="lapangan.php">Data Lapangan</a></li>
           <li class="list-group-item bg-transparent"><a href="pesan.php">Data Pesanan</a></li>
           <li class="list-group-item bg-transparent"><a href="admin.php">Data Admin</a></li>
+          <li class="list-group-item bg-transparent"><a href="pengeluaran.php">Data Pengeluaran</a></li>
           <li class="list-group-item bg-transparent"></li>
         </ul>
         <a href="../logout.php" class="mt-5 btn btn-inti text-dark">Logout</a>
@@ -83,7 +89,13 @@ if (isset($_POST["edit"])) {
         <!-- Konten -->
         <h3 class="judul">Data Lapangan</h3>
         <hr>
-        <button class="btn btn-inti mt-5" data-bs-toggle="modal" data-bs-target="#tambahModal1">Tambah</button>
+        <button class="btn btn-inti" data-bs-toggle="modal" data-bs-target="#tambahModal1">Tambah</button>
+        <div class="input-group rounded mt-2">
+          <input type="search" class="form-control rounded" id="searchInput" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
+          <span class="input-group-text border-0" id="search-addon">
+            <i class="bi bi-search"></i>
+          </span>
+        </div>
         <!-- Modal Tambah -->
         <div class="modal fade" id="tambahModal1" tabindex="-1" aria-labelledby="tambahModalLabel" aria-hidden="true">
           <div class="modal-dialog modal-dialog-centered">
@@ -123,7 +135,6 @@ if (isset($_POST["edit"])) {
           </div>
         </div>
         <!-- End Modal Tambah -->
-
         <table class="table table-hover mt-3">
           <thead class="table-inti">
             <tr>
@@ -135,7 +146,7 @@ if (isset($_POST["edit"])) {
               <th scope="col">Aksi</th>
             </tr>
           </thead>
-          <tbody class="text">
+          <tbody class="text" id="searchResults">
             <?php $i = 1; ?>
             <?php foreach ($lapangan as $row) : ?>
               <tr>
@@ -226,6 +237,37 @@ if (isset($_POST["edit"])) {
 
       </div>
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+
+      <script>
+        document.addEventListener("DOMContentLoaded", function() {
+          const searchInput = document.getElementById("searchInput");
+          const rows = document.querySelectorAll("#searchResults tr");
+
+          searchInput.addEventListener("input", function() {
+            const searchQuery = searchInput.value.toLowerCase();
+
+            rows.forEach((row) => {
+              const cells = row.getElementsByTagName("td");
+              let rowContainsQuery = false;
+
+              for (let i = 0; i < cells.length; i++) {
+                const cellText = cells[i].textContent.toLowerCase();
+
+                if (cellText.includes(searchQuery)) {
+                  rowContainsQuery = true;
+                  break;
+                }
+              }
+
+              if (rowContainsQuery) {
+                row.style.display = "";
+              } else {
+                row.style.display = "none";
+              }
+            });
+          });
+        });
+      </script>
 </body>
 
 </html>
