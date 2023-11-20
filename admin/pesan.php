@@ -8,7 +8,7 @@ if ($role !== 'Admin') {
 }
 
 // Pagination
-$jmlHalamanPerData = 10;
+$jmlHalamanPerData = 20;
 $jumlahData = count(query("SELECT sewa.idsewa,user.nama_lengkap,sewa.tgl_pesan,sewa.jmulai,sewa.jhabis,sewa.lama,sewa.tot,bayar.bukti,bayar.konfirmasi
 FROM sewa
 JOIN user ON sewa.iduser = user.id_user
