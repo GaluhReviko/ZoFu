@@ -276,7 +276,7 @@ if (isset($_POST["pesan"])) {
   <footer class="footer mt-5">
     <div class="bg-light py-4">
       <div class="container text-center">
-        <p class="text-muted mb-0 py-2">© 2019 Bootstrapious All rights reserved.</p>
+        <p class="text-muted mb-0 py-2">© 2023 Zona-Futsal All rights reserved.</p>
       </div>
     </div>
   </footer>

@@ -563,3 +563,19 @@ form .txt_field {
 .input-group input.form-control {
   box-shadow: none !important;
 }
+
+
+/* kontak */
+.contact-info {
+  margin-top: 2rem;
+}
+
+div.flex-grow-1 a{
+  flex-grow: 1 !important;
+  color: #212529; 
+  text-decoration: none;
+}
+
+i.fs-4 {
+  color:var(--primary);
+}

@@ -11,6 +11,7 @@
   <link rel="icon" href="/img/soccer-ground.ico">
   <script src="https://unpkg.com/feather-icons"></script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
 </head>
 
 <body>
@@ -88,56 +89,56 @@
     <p class="text-center m-3">
       Kumpulan foto-foto yang ada di Zona futsal
     </p>
-      <div id="carouselExampleCaptions" class="carousel carousel-dark slide" data-bs-ride="false">
-        <div class="carousel-inner">
-          <div class="carousel-item active">
-            <div class="card-group">
-              <div class="card">
-                <img src="/img/badmintoon.jpg" class="card-img-top" alt="..." />
+    <div id="carouselExampleCaptions" class="carousel carousel-dark slide" data-bs-ride="false">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <div class="card-group">
+            <div class="card">
+              <img src="/img/badmintoon.jpg" class="card-img-top" alt="..." />
 
-              </div>
-              <div class="card">
-                <img src="/img/6473652695671.jpg" class="card-img-top" alt="..." />
-              </div>
-              <div class="card">
-                <img src="/img/badmintoon.jpg" class="card-img-top" alt="..." />
-              </div>
+            </div>
+            <div class="card">
+              <img src="/img/6473652695671.jpg" class="card-img-top" alt="..." />
+            </div>
+            <div class="card">
+              <img src="/img/badmintoon.jpg" class="card-img-top" alt="..." />
             </div>
           </div>
-          <div class="carousel-item">
-            <div class="card-group">
-              <div class="card">
-                <img src="/img/footbal.jpg" class="card-img-top" alt="..." />
-              </div>
-              <div class="card">
-                <img src="/img/futsal.jpg" class="card-img-top" alt="..." />
-              </div>
-              <div class="card">
-                <img src="/img/badmintoon.jpg" class="card-img-top" alt="..." />
-              </div>
-            </div>
-          </div>
-          <div class="carousel-item">
-            <div class="card-group">
-              <div class="card">
-                <img src="/img/footbal.jpg" class="card-img-top" alt="..." />
-              </div>
-              <div class="card">
-                <img src="/img/futsal.jpg" class="card-img-top" alt="..." />
-              </div>
-              <div class="card">
-                <img src="/img/6473652695671.jpg" class="card-img-top" alt="..." />
-              </div>
-            </div>
-          </div>
-          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          </button>
-          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          </button>
         </div>
+        <div class="carousel-item">
+          <div class="card-group">
+            <div class="card">
+              <img src="/img/footbal.jpg" class="card-img-top" alt="..." />
+            </div>
+            <div class="card">
+              <img src="/img/futsal.jpg" class="card-img-top" alt="..." />
+            </div>
+            <div class="card">
+              <img src="/img/badmintoon.jpg" class="card-img-top" alt="..." />
+            </div>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <div class="card-group">
+            <div class="card">
+              <img src="/img/footbal.jpg" class="card-img-top" alt="..." />
+            </div>
+            <div class="card">
+              <img src="/img/futsal.jpg" class="card-img-top" alt="..." />
+            </div>
+            <div class="card">
+              <img src="/img/6473652695671.jpg" class="card-img-top" alt="..." />
+            </div>
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        </button>
       </div>
+    </div>
   </section>
   <!-- End Gallery -->
 
@@ -179,26 +180,57 @@
         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3949.326663873338!2d113.72363987491453!3d-8.16980748187607!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd695cfe9894601%3A0xc9639ab1c93a874a!2sZona%20Futsal!5e0!3m2!1sid!2sid!4v1697590001162!5m2!1sid!2sid" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" class="map"></iframe>
       </div>
       <div class="col">
-        <form action="">
-          <div class="input-group">
-            <div class="input-group-prepend">
-              <span class="input-group-text"><i data-feather="user"></i></span>
+        <div class="card h-100 border-0 rounded-4 shadow-sm">
+          <div class="card-body p-4 pb-0">
+            <div class="d-flex py-2">
+              <div class="flex-shrink-0">
+                <i class="bi bi-geo-alt fs-4"></i>
+              </div>
+              <div class="flex-grow-1 ms-3">
+                <a href="https://maps.app.goo.gl/HF2FSGG89Q4V9B4p6" target="_blank">
+                  <h5 class="mb-1">Address</h5>
+                  <p>Jember, Jawa Timur</p>
+                </a>
+              </div>
             </div>
-            <input type="text" name="" id="" placeholder="nama" class="form-control" />
-          </div>
-          <div class="input-group">
-            <div class="input-group-prepend">
-              <span class="input-group-text"><i data-feather="mail"></i></span>
+            <hr class="hr-dotted mt-0">
+            <div class="d-flex py-2">
+              <div class="flex-shrink-0">
+                <i class="bi bi-whatsapp fs-4"></i>
+              </div>
+              <div class="flex-grow-1 ms-3">
+                <a href="https://api.whatsapp.com/send?phone=6281232728242&text=Assalamualaikum.." target="_blank">
+                  <h5 class="mb-1">WhatsApp</h5>
+                  <p>+62 812-3272-8242</p>
+                </a>
+              </div>
             </div>
-            <input type="text" name="" id="" placeholder="email" class="form-control" />
-          </div>
-          <div class="input-group">
-            <div class="input-group-prepend">
-              <span class="input-group-text"><i data-feather="phone"></i></span>
+            <hr class="hr-dotted mt-0">
+            <div class="d-flex py-2">
+              <div class="flex-shrink-0">
+                <i class="bi bi-envelope fs-4"></i>
+              </div>
+              <div class="flex-grow-1 ms-3">
+                <a href="mailto:" target="_blank">
+                  <h5 class="mb-1">Email</h5>
+                  <p>zonafutsal@gmail.com</p>
+                </a>
+              </div>
             </div>
-            <input type="text" name="" id="" placeholder="no telp" class="form-control" />
+            <hr class="hr-dotted mt-0">
+            <div class="d-flex py-2">
+              <div class="flex-shrink-0">
+                <i class="bi bi-instagram fs-4"></i>
+              </div>
+              <div class="flex-grow-1 ms-3">
+                <a href="" target="_blank">
+                  <h5 class="mb-1">Instagram</h5>
+                  <p>@zonafutsal</p>
+                </a>
+              </div>
+            </div>
           </div>
-        </form>
+        </div>
       </div>
     </div>
   </section>
