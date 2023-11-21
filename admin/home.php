@@ -28,7 +28,7 @@ $user = query("SELECT COUNT(id_user) AS jml_user FROM user")[0];
 <body>
   <div class="container-fluid">
     <div class="row min-vh-100">
-      <div class="sidebar col-2 bg-secondary">
+      <div class="sidebar col-2">
         <!-- Sidebar -->
         <h5 class="mt-5 judul text-center"><?= $_SESSION["username"]; ?></h5>
         <ul class="list-group list-group-flush">
@@ -42,7 +42,7 @@ $user = query("SELECT COUNT(id_user) AS jml_user FROM user")[0];
         </ul>
         <a href="../logout.php" class="mt-5 btn btn-inti text-dark">Logout</a>
       </div>
-      <div class="col-10 p-5 mt-5">
+      <div class="col-10 p-5 mt-3">
         <!-- Konten -->
         <h3 class="judul">Home</h3>
         <hr>

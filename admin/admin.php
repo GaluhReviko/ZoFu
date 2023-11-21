@@ -65,7 +65,7 @@ if (isset($_POST["edit"])) {
 <body>
   <div class="container-fluid">
     <div class="row min-vh-100">
-      <div class="sidebar col-2 bg-secondary">
+      <div class="sidebar col-2">
         <!-- Sidebar -->
         <h5 class="mt-5 judul text-center"><?= $_SESSION["username"]; ?></h5>
         <ul class="list-group list-group-flush">
@@ -80,7 +80,7 @@ if (isset($_POST["edit"])) {
         </ul>
         <a href="../logout.php" class="mt-5 btn btn-inti text-dark">Logout</a>
       </div>
-      <div class="col-10 p-5 mt-5">
+      <div class="col-10 p-5 mt-3">
         <!-- Konten -->
         <h3 class="judul">Data Admin</h3>
         <hr>
