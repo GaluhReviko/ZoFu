@@ -54,7 +54,7 @@ $member = query("SELECT * FROM user LIMIT $awalData, $jmlHalamanPerData");
           <li class="list-group-item bg-transparent"><a href="pengeluaran.php"><i class="bi bi-piggy-bank-fill mx-2"></i>Pengeluaran</a></li>
           <li class="list-group-item bg-transparent"></li>
         </ul>
-        <a href="../logout.php" class="mt-5 btn btn-inti text-dark">Logout</a>
+        <a href="../logout.php" class="mt-5 btn btn-inti text-dark"><i class="bi bi-box-arrow-left"></i> Logout</a>
       </div>
       <div class="col-10 p-5 mt-3">
         <!-- Konten -->
