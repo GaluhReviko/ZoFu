@@ -334,7 +334,7 @@ if (isset($_POST["simpan"])) {
                 <i class="bi bi-envelope fs-4"></i>
               </div>
               <div class="flex-grow-1 ms-3">
-                <a href="mailto:" target="_blank">
+                <a href="mailto:zonafutsal@gmail.com" target="_blank">
                   <h5 class="mb-1">Email</h5>
                   <p>zonafutsal@gmail.com</p>
                 </a>
