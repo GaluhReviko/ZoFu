@@ -46,12 +46,12 @@ $member = query("SELECT * FROM user LIMIT $awalData, $jmlHalamanPerData");
         <!-- Sidebar -->
         <h5 class="mt-5 judul text-center"><?= $_SESSION["username"]; ?></h5>
         <ul class="list-group list-group-flush">
-          <li class="list-group-item bg-transparent"><a href="home.php">Home</a></li>
-          <li class="list-group-item bg-transparent"><a href="member.php">Data Member</a></li>
-          <li class="list-group-item bg-transparent"><a href="lapangan.php">Data Lapangan</a></li>
-          <li class="list-group-item bg-transparent"><a href="pesan.php">Data Pesanan</a></li>
-          <li class="list-group-item bg-transparent"><a href="admin.php">Data Admin</a></li>
-          <li class="list-group-item bg-transparent"><a href="pengeluaran.php">Data Pengeluaran</a></li>
+          <li class="list-group-item bg-transparent"><a href="home.php"><i class="bi bi-house-door-fill mx-2"></i> Home</a></li>
+          <li class="list-group-item bg-transparent"><a href="member.php"><i class="bi bi-people-fill mx-2"></i>Data Member</a></li>
+          <li class="list-group-item bg-transparent"><a href="lapangan.php"><i class="bi bi-globe2 mx-2"></i>Data Lapangan</a></li>
+          <li class="list-group-item bg-transparent"><a href="pesan.php"><i class="bi bi-clipboard2-fill mx-2"></i>Data Pesanan</a></li>
+          <li class="list-group-item bg-transparent"><a href="admin.php"><i class="bi bi-person-workspace mx-2"></i>Data Admin</a></li>
+          <li class="list-group-item bg-transparent"><a href="pengeluaran.php"><i class="bi bi-piggy-bank-fill mx-2"></i>Pengeluaran</a></li>
           <li class="list-group-item bg-transparent"></li>
         </ul>
         <a href="../logout.php" class="mt-5 btn btn-inti text-dark">Logout</a>
@@ -88,7 +88,7 @@ $member = query("SELECT * FROM user LIMIT $awalData, $jmlHalamanPerData");
                   <td><?= $row["email"]; ?></td>
                   <td><?= $row["hp"]; ?></td>
                   <td>
-                    <a href="./controller/hapusMember.php?id=<?= $row["id_user"]; ?>" class="btn btn-danger">Hapus</a>
+                    <a href="./controller/hapusMember.php?id=<?= $row["id_user"]; ?>" class="btn btn-danger"><i class="bi bi-trash"></i> Hapus</a>
                   </td>
                 </tr>
                 <?php $i++; ?>

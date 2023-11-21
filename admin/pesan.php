@@ -55,12 +55,12 @@ JOIN bayar ON sewa.idsewa = bayar.idsewa LIMIT $awalData, $jmlHalamanPerData");
         <!-- Sidebar -->
         <h5 class="mt-5 judul text-center"><?= $_SESSION["username"]; ?></h5>
         <ul class="list-group list-group-flush">
-          <li class="list-group-item bg-transparent"><a href="home.php">Home</a></li>
-          <li class="list-group-item bg-transparent"><a href="member.php">Data Member</a></li>
-          <li class="list-group-item bg-transparent"><a href="lapangan.php">Data Lapangan</a></li>
-          <li class="list-group-item bg-transparent"><a href="pesan.php">Data Pesanan</a></li>
-          <li class="list-group-item bg-transparent"><a href="admin.php">Data Admin</a></li>
-          <li class="list-group-item bg-transparent"><a href="pengeluaran.php">Data Pengeluaran</a></li>
+          <li class="list-group-item bg-transparent"><a href="home.php"><i class="bi bi-house-door-fill mx-2"></i> Home</a></li>
+          <li class="list-group-item bg-transparent"><a href="member.php"><i class="bi bi-people-fill mx-2"></i>Data Member</a></li>
+          <li class="list-group-item bg-transparent"><a href="lapangan.php"><i class="bi bi-globe2 mx-2"></i>Data Lapangan</a></li>
+          <li class="list-group-item bg-transparent"><a href="pesan.php"><i class="bi bi-clipboard2-fill mx-2"></i>Data Pesanan</a></li>
+          <li class="list-group-item bg-transparent"><a href="admin.php"><i class="bi bi-person-workspace mx-2"></i>Data Admin</a></li>
+          <li class="list-group-item bg-transparent"><a href="pengeluaran.php"><i class="bi bi-piggy-bank-fill mx-2"></i>Pengeluaran</a></li>
           <li class="list-group-item bg-transparent"></li>
         </ul>
         <a href="../logout.php" class="mt-5 btn btn-inti text-dark">Logout</a>
@@ -69,7 +69,7 @@ JOIN bayar ON sewa.idsewa = bayar.idsewa LIMIT $awalData, $jmlHalamanPerData");
         <!-- Konten -->
         <h3 class="judul">Data Pesanan</h3>
         <hr>
-        <a href="" class="btn btn-inti" onclick="printTable()">Download</a>
+        <a href="" class="btn btn-danger" onclick="printTable()"><i class="bi bi-filetype-pdf"></i></a>
         <div class="input-group rounded mt-2">
           <input type="search" class="form-control rounded" id="searchInput" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
           <span class="input-group-text border-0" id="search-addon">
@@ -113,11 +113,11 @@ JOIN bayar ON sewa.idsewa = bayar.idsewa LIMIT $awalData, $jmlHalamanPerData");
                   echo '';
                 } else {
                   // tampilkan tombol Detail
-                  echo ' <button type="button" class="btn btn-inti" data-bs-toggle="modal" data-bs-target="#konfirmasiModal' . $idsewa . '">
-                  Konfirmasi
+                  echo ' <button type="button" class="btn btn-inti" data-bs-toggle="modal" data-bs-target="#konfirmasiModal' . $idsewa . '"><i class="bi bi-check2-square"></i>
+                  Konfir
                 </button>
-                <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#hapusModal' . $idsewa . '">
-                  Hapus Pes
+                <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#hapusModal' . $idsewa . '"><i class="bi bi-trash"></i>
+                  Hapus
                 </button>
                 ';
                 }

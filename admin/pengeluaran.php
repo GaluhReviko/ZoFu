@@ -59,13 +59,12 @@ if (isset($_POST["simpan"])) {
         <!-- Sidebar -->
         <h5 class="mt-5 judul text-center"><?= $_SESSION["username"]; ?></h5>
         <ul class="list-group list-group-flush">
-          <li class="list-group-item bg-transparent"><a href="home.php">Home</a></li>
-          <li class="list-group-item bg-transparent"><a href="member.php">Data Member</a></li>
-          <li class="list-group-item bg-transparent"><a href="lapangan.php">Data Lapangan</a></li>
-          <li class="list-group-item bg-transparent"><a href="pesan.php">Data Pesanan</a></li>
-          <li class="list-group-item bg-transparent"><a href="admin.php">Data Admin</a></li>
-          <li class="list-group-item bg-transparent"><a href="pengeluaran.php">Data Pengeluaran</a></li>
-          <li class="list-group-item bg-transparent"><a href="settingadmin.php">Setting Admin</a></li>
+          <li class="list-group-item bg-transparent"><a href="home.php"><i class="bi bi-house-door-fill mx-2"></i> Home</a></li>
+          <li class="list-group-item bg-transparent"><a href="member.php"><i class="bi bi-people-fill mx-2"></i>Data Member</a></li>
+          <li class="list-group-item bg-transparent"><a href="lapangan.php"><i class="bi bi-globe2 mx-2"></i>Data Lapangan</a></li>
+          <li class="list-group-item bg-transparent"><a href="pesan.php"><i class="bi bi-clipboard2-fill mx-2"></i>Data Pesanan</a></li>
+          <li class="list-group-item bg-transparent"><a href="admin.php"><i class="bi bi-person-workspace mx-2"></i>Data Admin</a></li>
+          <li class="list-group-item bg-transparent"><a href="pengeluaran.php"><i class="bi bi-piggy-bank-fill mx-2"></i>Pengeluaran</a></li>
           <li class="list-group-item bg-transparent"></li>
         </ul>
         <a href="../logout.php" class="mt-5 btn btn-inti text-dark">Logout</a>
@@ -74,8 +73,8 @@ if (isset($_POST["simpan"])) {
         <!-- Konten -->
         <h3 class="judul">Data Pengeluaran</h3>
         <hr>
-        <button class="btn btn-inti" data-bs-toggle="modal" data-bs-target="#tambahModal">Tambah</button>
-        <a href="" class="btn btn-inti" onclick="printTable()">Download</a>
+        <button class="btn btn-inti" data-bs-toggle="modal" data-bs-target="#tambahModal"><i class="bi bi-plus-circle"></i> Tambah</button>
+        <a href="" class="btn btn-danger" onclick="printTable()"><i class="bi bi-filetype-pdf"></i></a>
         <div class="input-group rounded mt-2">
           <input type="search" class="form-control rounded" id="searchInput" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
           <span class="input-group-text border-0" id="search-addon">
@@ -140,58 +139,8 @@ if (isset($_POST["simpan"])) {
                   <td><?= $row["keterangan"]; ?></td>
                   <td><?= $row["jumlah"]; ?></td>
                   <td>
-                    <a href="./controller/hapusPengeluaran.php?id=<?= $row["idpengeluaran"]; ?>" class="btn btn-danger">Hapus</a>
+                    <a href="./controller/hapusPengeluaran.php?id=<?= $row["idpengeluaran"]; ?>" class="btn btn-danger"><i class="bi bi-trash"></i> Hapus</a>
                   </td>
-                  <!-- Edit Modal -->
-                  <div class="modal fade" id="editModal<?= $row["id_user"]; ?>" tabindex="-1" aria-labelledby="tambahModalLabel" aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-centered">
-                      <div class="modal-content">
-                        <div class="modal-header">
-                          <h5 class="modal-title" id="tambahModalLabel">Edit Admin <?= $row["nama"]; ?></h5>
-                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <form action="" method="post">
-                          <input type="hidden" name="id" class="form-control" id="exampleInputPassword1" value="<?= $row["id_user"]; ?>>">
-                          <div class="modal-body">
-                            <!-- konten form modal -->
-                            <div class="row justify-content-center align-items-center">
-                              <div class="mb-3">
-                                <img src="../img/user.png" alt="gambar lapangan" class="img-fluid" width="70%" height="70%">
-                              </div>
-                              <div class="col">
-                                <div class="mb-3">
-                                  <label for="exampleInputPassword1" class="form-label">Username</label>
-                                  <input type="text" name="username" class="form-control" id="exampleInputPassword1" value="<?= $row["username"]; ?>">
-                                </div>
-                                <div class="mb-3">
-                                  <label for="exampleInputPassword1" class="form-label">Password</label>
-                                  <input type="password" name="password" class="form-control" id="exampleInputPassword1" value="<?= $row["password"]; ?>">
-                                </div>
-                              </div>
-                              <div class="col">
-                                <div class="mb-3">
-                                  <label for="exampleInputPassword1" class="form-label">Nama Lengkap</label>
-                                  <input type="nama" name="nama" class="form-control" id="exampleInputPassword1" value="<?= $row["nama"]; ?>">
-                                </div>
-                                <div class="mb-3">
-                                  <label for="exampleInputPassword1" class="form-label">Email</label>
-                                  <input type="email" name="email" class="form-control" id="exampleInputPassword1" value="<?= $row["email"]; ?>">
-                                </div>
-                              </div>
-                              <div class="mb-3">
-                                <label for="exampleInputPassword1" class="form-label">No Hp</label>
-                                <input type="number" name="hp" class="form-control" id="exampleInputPassword1" value="<?= $row["phone"]; ?>">
-                              </div>
-                            </div>
-                            <div class="modal-footer">
-                              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
-                              <button type="submit" class="btn btn-primary" name="edit" id="edit">Simpan</button>
-                            </div>
-                        </form>
-                      </div>
-                    </div>
-                  </div>
-                  <!-- End Modal Tambah -->
                 </tr>
               <?php endforeach; ?>
             </tbody>

@@ -75,12 +75,12 @@ if (isset($_POST["edit"])) {
           <h5 class="mt-5 judul text-center"><?= $_SESSION["username"]; ?></h5>
         </h5>
         <ul class="list-group list-group-flush">
-          <li class="list-group-item bg-transparent"><a href="home.php">Home</a></li>
-          <li class="list-group-item bg-transparent"><a href="member.php">Data Member</a></li>
-          <li class="list-group-item bg-transparent"><a href="lapangan.php">Data Lapangan</a></li>
-          <li class="list-group-item bg-transparent"><a href="pesan.php">Data Pesanan</a></li>
-          <li class="list-group-item bg-transparent"><a href="admin.php">Data Admin</a></li>
-          <li class="list-group-item bg-transparent"><a href="pengeluaran.php">Data Pengeluaran</a></li>
+          <li class="list-group-item bg-transparent"><a href="home.php"><i class="bi bi-house-door-fill mx-2"></i> Home</a></li>
+          <li class="list-group-item bg-transparent"><a href="member.php"><i class="bi bi-people-fill mx-2"></i>Data Member</a></li>
+          <li class="list-group-item bg-transparent"><a href="lapangan.php"><i class="bi bi-globe2 mx-2"></i>Data Lapangan</a></li>
+          <li class="list-group-item bg-transparent"><a href="pesan.php"><i class="bi bi-clipboard2-fill mx-2"></i>Data Pesanan</a></li>
+          <li class="list-group-item bg-transparent"><a href="admin.php"><i class="bi bi-person-workspace mx-2"></i>Data Admin</a></li>
+          <li class="list-group-item bg-transparent"><a href="pengeluaran.php"><i class="bi bi-piggy-bank-fill mx-2"></i>Pengeluaran</a></li>
           <li class="list-group-item bg-transparent"></li>
         </ul>
         <a href="../logout.php" class="mt-5 btn btn-inti text-dark">Logout</a>
@@ -89,7 +89,7 @@ if (isset($_POST["edit"])) {
         <!-- Konten -->
         <h3 class="judul">Data Lapangan</h3>
         <hr>
-        <button class="btn btn-inti" data-bs-toggle="modal" data-bs-target="#tambahModal1">Tambah</button>
+        <button class="btn btn-inti" data-bs-toggle="modal" data-bs-target="#tambahModal1"><i class="bi bi-plus-circle"></i> Tambah</button>
         <div class="input-group rounded mt-2">
           <input type="search" class="form-control rounded" id="searchInput" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
           <span class="input-group-text border-0" id="search-addon">
@@ -157,8 +157,8 @@ if (isset($_POST["edit"])) {
                 <td><?= $row["ket"]; ?></td>
                 <td><img src="../img/<?= $row["foto"]; ?>" width="100" height="100"></td>
                 <td>
-                  <button class="btn btn-inti" data-bs-toggle="modal" data-bs-target="#editModal<?= $row["idlap"]; ?>">Edit</button>
-                  <a href="./controller/hapusLpg.php?id=<?= $row["idlap"]; ?>" class="btn btn-danger">Hapus</a>
+                  <button class="btn btn-inti" data-bs-toggle="modal" data-bs-target="#editModal<?= $row["idlap"]; ?>"><i class="bi bi-pencil"></i> Edit</button>
+                  <a href="./controller/hapusLpg.php?id=<?= $row["idlap"]; ?>" class="btn btn-danger"><i class="bi bi-trash"></i> Hapus</a>
                 </td>
                 <!-- Edit Modal -->
                 <div class="modal fade" id="editModal<?= $row["idlap"]; ?>" tabindex="-1" aria-labelledby="tambahModalLabel" aria-hidden="true">
