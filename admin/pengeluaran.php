@@ -49,7 +49,7 @@ if (isset($_POST["simpan"])) {
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
 
-  <title>Data Admin</title>
+  <title>Data Pengeluaran</title>
 </head>
 
 <body>
@@ -75,6 +75,7 @@ if (isset($_POST["simpan"])) {
         <h3 class="judul">Data Pengeluaran</h3>
         <hr>
         <button class="btn btn-inti" data-bs-toggle="modal" data-bs-target="#tambahModal">Tambah</button>
+        <a href="" class="btn btn-inti" onclick="printTable()">Download</a>
         <div class="input-group rounded mt-2">
           <input type="search" class="form-control rounded" id="searchInput" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
           <span class="input-group-text border-0" id="search-addon">
@@ -103,10 +104,10 @@ if (isset($_POST["simpan"])) {
                         <input type="text" name="Keterangan" class="form-control" id="exampleInputPassword1">
                       </div>
                     </div>
-                      <div class="mb-3">
-                        <label for="exampleInputPassword1" class="form-label">Harga</label>
-                        <input type="text" name="Jumlah" class="form-control" id="exampleInputPassword1">
-                      </div>
+                    <div class="mb-3">
+                      <label for="exampleInputPassword1" class="form-label">Harga</label>
+                      <input type="text" name="Jumlah" class="form-control" id="exampleInputPassword1">
+                    </div>
                   </div>
                 </div>
                 <div class="modal-footer">
@@ -118,81 +119,84 @@ if (isset($_POST["simpan"])) {
           </div>
         </div>
         <!-- End Modal Tambah -->
-        <table class="table table-hover mt-3">
-          <thead class="table-inti">
-            <tr>
-              <th scope="col">No</th>
-              <th scope="col">Tanggal Pengeluaran</th>
-              <th scope="col">Keterangan</th>
-              <th scope="col">Harga</th>
-              <th scope="col">Aksi</th>
-            </tr>
-          </thead>
-          <tbody class="text" id="searchResults">
-            <?php $i = 1; ?>
-            <?php foreach ($pengeluaran as $row) : ?>
+
+        <div style="overflow:auto; height:300px; margin-bottom:20px; margin-top:3px;">
+          <table class="table table-hover mt-3">
+            <thead class="table-inti" style="position: sticky; top:0; z-index:1; ">
               <tr>
-                <th scope="row"><?= $i++; ?></th>
-                <td><?= $row["tanggalpengeluaran"]; ?></td>
-                <td><?= $row["keterangan"]; ?></td>
-                <td><?= $row["jumlah"]; ?></td>
-                <td>
-                  <a href="./controller/hapusPengeluaran.php?id=<?= $row["idpengeluaran"]; ?>" class="btn btn-danger">Hapus</a>
-                </td>
-                <!-- Edit Modal -->
-                <div class="modal fade" id="editModal<?= $row["id_user"]; ?>" tabindex="-1" aria-labelledby="tambahModalLabel" aria-hidden="true">
-                  <div class="modal-dialog modal-dialog-centered">
-                    <div class="modal-content">
-                      <div class="modal-header">
-                        <h5 class="modal-title" id="tambahModalLabel">Edit Admin <?= $row["nama"]; ?></h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <th scope="col">No</th>
+                <th scope="col">Tanggal Pengeluaran</th>
+                <th scope="col">Keterangan</th>
+                <th scope="col">Harga</th>
+                <th scope="col">Aksi</th>
+              </tr>
+            </thead>
+            <tbody class="text" id="searchResults">
+              <?php $i = 1; ?>
+              <?php foreach ($pengeluaran as $row) : ?>
+                <tr>
+                  <th scope="row"><?= $i++; ?></th>
+                  <td><?= $row["tanggalpengeluaran"]; ?></td>
+                  <td><?= $row["keterangan"]; ?></td>
+                  <td><?= $row["jumlah"]; ?></td>
+                  <td>
+                    <a href="./controller/hapusPengeluaran.php?id=<?= $row["idpengeluaran"]; ?>" class="btn btn-danger">Hapus</a>
+                  </td>
+                  <!-- Edit Modal -->
+                  <div class="modal fade" id="editModal<?= $row["id_user"]; ?>" tabindex="-1" aria-labelledby="tambahModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title" id="tambahModalLabel">Edit Admin <?= $row["nama"]; ?></h5>
+                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <form action="" method="post">
+                          <input type="hidden" name="id" class="form-control" id="exampleInputPassword1" value="<?= $row["id_user"]; ?>>">
+                          <div class="modal-body">
+                            <!-- konten form modal -->
+                            <div class="row justify-content-center align-items-center">
+                              <div class="mb-3">
+                                <img src="../img/user.png" alt="gambar lapangan" class="img-fluid" width="70%" height="70%">
+                              </div>
+                              <div class="col">
+                                <div class="mb-3">
+                                  <label for="exampleInputPassword1" class="form-label">Username</label>
+                                  <input type="text" name="username" class="form-control" id="exampleInputPassword1" value="<?= $row["username"]; ?>">
+                                </div>
+                                <div class="mb-3">
+                                  <label for="exampleInputPassword1" class="form-label">Password</label>
+                                  <input type="password" name="password" class="form-control" id="exampleInputPassword1" value="<?= $row["password"]; ?>">
+                                </div>
+                              </div>
+                              <div class="col">
+                                <div class="mb-3">
+                                  <label for="exampleInputPassword1" class="form-label">Nama Lengkap</label>
+                                  <input type="nama" name="nama" class="form-control" id="exampleInputPassword1" value="<?= $row["nama"]; ?>">
+                                </div>
+                                <div class="mb-3">
+                                  <label for="exampleInputPassword1" class="form-label">Email</label>
+                                  <input type="email" name="email" class="form-control" id="exampleInputPassword1" value="<?= $row["email"]; ?>">
+                                </div>
+                              </div>
+                              <div class="mb-3">
+                                <label for="exampleInputPassword1" class="form-label">No Hp</label>
+                                <input type="number" name="hp" class="form-control" id="exampleInputPassword1" value="<?= $row["phone"]; ?>">
+                              </div>
+                            </div>
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
+                              <button type="submit" class="btn btn-primary" name="edit" id="edit">Simpan</button>
+                            </div>
+                        </form>
                       </div>
-                      <form action="" method="post">
-                        <input type="hidden" name="id" class="form-control" id="exampleInputPassword1" value="<?= $row["id_user"]; ?>>">
-                        <div class="modal-body">
-                          <!-- konten form modal -->
-                          <div class="row justify-content-center align-items-center">
-                            <div class="mb-3">
-                              <img src="../img/user.png" alt="gambar lapangan" class="img-fluid" width="70%" height="70%">
-                            </div>
-                            <div class="col">
-                              <div class="mb-3">
-                                <label for="exampleInputPassword1" class="form-label">Username</label>
-                                <input type="text" name="username" class="form-control" id="exampleInputPassword1" value="<?= $row["username"]; ?>">
-                              </div>
-                              <div class="mb-3">
-                                <label for="exampleInputPassword1" class="form-label">Password</label>
-                                <input type="password" name="password" class="form-control" id="exampleInputPassword1" value="<?= $row["password"]; ?>">
-                              </div>
-                            </div>
-                            <div class="col">
-                              <div class="mb-3">
-                                <label for="exampleInputPassword1" class="form-label">Nama Lengkap</label>
-                                <input type="nama" name="nama" class="form-control" id="exampleInputPassword1" value="<?= $row["nama"]; ?>">
-                              </div>
-                              <div class="mb-3">
-                                <label for="exampleInputPassword1" class="form-label">Email</label>
-                                <input type="email" name="email" class="form-control" id="exampleInputPassword1" value="<?= $row["email"]; ?>">
-                              </div>
-                            </div>
-                            <div class="mb-3">
-                              <label for="exampleInputPassword1" class="form-label">No Hp</label>
-                              <input type="number" name="hp" class="form-control" id="exampleInputPassword1" value="<?= $row["phone"]; ?>">
-                            </div>
-                          </div>
-                          <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
-                            <button type="submit" class="btn btn-primary" name="edit" id="edit">Simpan</button>
-                          </div>
-                      </form>
                     </div>
                   </div>
-                </div>
-                <!-- End Modal Tambah -->
-              </tr>
-            <?php endforeach; ?>
-          </tbody>
-        </table>
+                  <!-- End Modal Tambah -->
+                </tr>
+              <?php endforeach; ?>
+            </tbody>
+          </table>
+        </div>
 
         <ul class="pagination">
           <?php if ($halamanAktif > 1) : ?>
@@ -217,40 +221,71 @@ if (isset($_POST["simpan"])) {
         </ul>
 
       </div>
+      <div style="display: none;">
+        <table class="table table-striped mt-3" id="cetak">
+          <thead class="table">
+            <tr>
+              <th scope="col">No</th>
+              <th scope="col">Tanggal Pengeluaran</th>
+              <th scope="col">Keterangan</th>
+              <th scope="col">Harga</th>
+            </tr>
+          </thead>
+          <tbody class="" id="searchResults">
+            <?php $i = 1; ?>
+            <?php foreach ($pengeluaran as $row) : ?>
+              <tr>
+                <th scope="row"><?= $i++; ?></th>
+                <td><?= $row["tanggalpengeluaran"]; ?></td>
+                <td><?= $row["keterangan"]; ?></td>
+                <td><?= $row["jumlah"]; ?></td>
+              </tr>
+            <?php endforeach; ?>
+          </tbody>
+        </table>
+      </div>
     </div>
   </div>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
 
-      <script>
-        document.addEventListener("DOMContentLoaded", function() {
-          const searchInput = document.getElementById("searchInput");
-          const rows = document.querySelectorAll("#searchResults tr");
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const searchInput = document.getElementById("searchInput");
+      const rows = document.querySelectorAll("#searchResults tr");
 
-          searchInput.addEventListener("input", function() {
-            const searchQuery = searchInput.value.toLowerCase();
+      searchInput.addEventListener("input", function() {
+        const searchQuery = searchInput.value.toLowerCase();
 
-            rows.forEach((row) => {
-              const cells = row.getElementsByTagName("td");
-              let rowContainsQuery = false;
+        rows.forEach((row) => {
+          const cells = row.getElementsByTagName("td");
+          let rowContainsQuery = false;
 
-              for (let i = 0; i < cells.length; i++) {
-                const cellText = cells[i].textContent.toLowerCase();
+          for (let i = 0; i < cells.length; i++) {
+            const cellText = cells[i].textContent.toLowerCase();
 
-                if (cellText.includes(searchQuery)) {
-                  rowContainsQuery = true;
-                  break;
-                }
-              }
+            if (cellText.includes(searchQuery)) {
+              rowContainsQuery = true;
+              break;
+            }
+          }
 
-              if (rowContainsQuery) {
-                row.style.display = "";
-              } else {
-                row.style.display = "none";
-              }
-            });
-          });
+          if (rowContainsQuery) {
+            row.style.display = "";
+          } else {
+            row.style.display = "none";
+          }
         });
-      </script>
+      });
+    });
+
+    function printTable() {
+        var printContents = document.getElementById("cetak").outerHTML;
+        var originalContents = document.body.innerHTML;
+        document.body.innerHTML = printContents;
+        window.print();
+        document.body.innerHTML = originalContents;
+    }
+  </script>
 </body>
 
 </html>
