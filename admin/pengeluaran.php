@@ -75,6 +75,7 @@ if (isset($_POST["simpan"])) {
         <hr>
         <button class="btn btn-inti" data-bs-toggle="modal" data-bs-target="#tambahModal"><i class="bi bi-plus-circle"></i> Tambah</button>
         <a href="" class="btn btn-danger" onclick="printTable()"><i class="bi bi-filetype-pdf"></i></a>
+        <a href="" class="btn btn-success" onclick="exportToExcel()"><i class="bi bi-filetype-xls"></i></i></a>
         <div class="input-group rounded mt-2">
           <input type="search" class="form-control rounded" id="searchInput" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
           <span class="input-group-text border-0" id="search-addon">
@@ -234,7 +235,13 @@ if (isset($_POST["simpan"])) {
         window.print();
         document.body.innerHTML = originalContents;
     }
+
+    function exportToExcel() {
+          var table2excel = new Table2Excel();
+          table2excel.export(document.querySelectorAll("table.table"));
+        }
   </script>
+  <script src="/admin/table2excel.js"></script>
 </body>
 
 </html>

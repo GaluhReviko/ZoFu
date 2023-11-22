@@ -26,7 +26,9 @@ $awalData = ($jmlHalamanPerData * $halamanAktif) - $jmlHalamanPerData;
 $pesan = query("SELECT sewa.idsewa,user.nama_lengkap,sewa.tgl_pesan,sewa.jmulai,sewa.jhabis,sewa.lama,sewa.tot,bayar.bukti,bayar.konfirmasi
 FROM sewa
 JOIN user ON sewa.iduser = user.id_user
-JOIN bayar ON sewa.idsewa = bayar.idsewa LIMIT $awalData, $jmlHalamanPerData");
+JOIN bayar ON sewa.idsewa = bayar.idsewa 
+ORDER BY sewa.tgl_pesan DESC
+LIMIT $awalData, $jmlHalamanPerData");
 
 
 ?>
@@ -70,6 +72,7 @@ JOIN bayar ON sewa.idsewa = bayar.idsewa LIMIT $awalData, $jmlHalamanPerData");
         <h3 class="judul">Data Pesanan</h3>
         <hr>
         <a href="" class="btn btn-danger" onclick="printTable()"><i class="bi bi-filetype-pdf"></i></a>
+        <a href="" class="btn btn-success" onclick="exportToExcel()"><i class="bi bi-filetype-xls"></i></a>
         <div class="input-group rounded mt-2">
           <input type="search" class="form-control rounded" id="searchInput" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
           <span class="input-group-text border-0" id="search-addon">
@@ -77,95 +80,95 @@ JOIN bayar ON sewa.idsewa = bayar.idsewa LIMIT $awalData, $jmlHalamanPerData");
           </span>
         </div>
         <div style="overflow: auto; height:400px; margin-bottom:30px; margin-top:3px;">
-        <table class="table table-striped mt-3">
-          <thead class="table-inti" style="position: sticky; top:0; z-index:1; ">
-            <tr>
-            <th scope="col" style="text-align: center; vertical-align: middle;">No</th>
-            <th scope="col" style="text-align: center; vertical-align: middle;">Nama Customer</th>
-            <th scope="col" style="text-align: center; vertical-align: middle;">Tanggal Pesan</th>
-            <th scope="col" style="text-align: center; vertical-align: middle;">Tanggal Main</th>
-            <th scope="col" style="text-align: center; vertical-align: middle;">Jam Habis</th>
-            <th scope="col" style="text-align: center; vertical-align: middle;">Lama Main</th>
-            <th scope="col" style="text-align: center; vertical-align: middle;">Total</th>
-            <th scope="col" style="text-align: center; vertical-align: middle;">Bukti</th>
-            <th scope="col" style="text-align: center; vertical-align: middle;">Konfirmasi</th>
-            <th scope="col" style="text-align: center; vertical-align: middle;">Aksi</th>
-            </tr>
-          </thead>
-          <tbody class="text" id="searchResults">
-            <?php $i = 1; ?>
-            <?php foreach ($pesan as $row) : ?>
+          <table class="table table-striped mt-3">
+            <thead class="table-inti" style="position: sticky; top:0; z-index:1; ">
               <tr>
-              <td style="text-align: center; vertical-align: middle;"><?= $i++; ?></td>
-              <td style="text-align: center; vertical-align: middle;"><?= $row["nama_lengkap"]; ?></td>
-              <td style="text-align: center; vertical-align: middle;"><?= $row["tgl_pesan"]; ?></td>
-              <td style="text-align: center; vertical-align: middle;"><?= $row["jmulai"]; ?></td>
-              <td style="text-align: center; vertical-align: middle;"><?= $row["jhabis"]; ?></td>
-              <td style="text-align: center; vertical-align: middle;"><?= $row["lama"]; ?></td>
-              <td style="text-align: center; vertical-align: middle;"><?= $row["tot"]; ?></td>
-              <td style="text-align: center; vertical-align: middle;"><img src="../img/<?= $row["bukti"]; ?>" width="100" height="100"></td>
-              <td style="text-align: center; vertical-align: middle;"><?= $row["konfirmasi"]; ?></td>
-              <td style="text-align: center; vertical-align: middle;">
-                <?php
-                $idsewa = $row["idsewa"];
-                if ($row["konfirmasi"] == "Terkonfirmasi") {
-                  // tampilkan tombol Bayar dan Hapus
-                  echo '';
-                } else {
-                  // tampilkan tombol Detail
-                  echo ' <button type="button" class="btn btn-inti" data-bs-toggle="modal" data-bs-target="#konfirmasiModal' . $idsewa . '"><i class="bi bi-check2-square"></i>
+                <th scope="col" style="text-align: center; vertical-align: middle;">No</th>
+                <th scope="col" style="text-align: center; vertical-align: middle;">Nama Customer</th>
+                <th scope="col" style="text-align: center; vertical-align: middle;">Tanggal Pesan</th>
+                <th scope="col" style="text-align: center; vertical-align: middle;">Tanggal Main</th>
+                <th scope="col" style="text-align: center; vertical-align: middle;">Jam Habis</th>
+                <th scope="col" style="text-align: center; vertical-align: middle;">Lama Main</th>
+                <th scope="col" style="text-align: center; vertical-align: middle;">Total</th>
+                <th scope="col" style="text-align: center; vertical-align: middle;">Bukti</th>
+                <th scope="col" style="text-align: center; vertical-align: middle;">Konfirmasi</th>
+                <th scope="col" style="text-align: center; vertical-align: middle;"></th>
+              </tr>
+            </thead>
+            <tbody class="text" id="searchResults">
+              <?php $i = 1; ?>
+              <?php foreach ($pesan as $row) : ?>
+                <tr>
+                  <td style="text-align: center; vertical-align: middle;"><?= $i++; ?></td>
+                  <td style="text-align: center; vertical-align: middle;"><?= $row["nama_lengkap"]; ?></td>
+                  <td style="text-align: center; vertical-align: middle;"><?= $row["tgl_pesan"]; ?></td>
+                  <td style="text-align: center; vertical-align: middle;"><?= $row["jmulai"]; ?></td>
+                  <td style="text-align: center; vertical-align: middle;"><?= $row["jhabis"]; ?></td>
+                  <td style="text-align: center; vertical-align: middle;"><?= $row["lama"]; ?></td>
+                  <td style="text-align: center; vertical-align: middle;"><?= $row["tot"]; ?></td>
+                  <td style="text-align: center; vertical-align: middle;"><img src="../img/<?= $row["bukti"]; ?>" width="100" height="100"></td>
+                  <td style="text-align: center; vertical-align: middle;"><?= $row["konfirmasi"]; ?></td>
+                  <td style="text-align: center; vertical-align: middle;">
+                    <?php
+                    $idsewa = $row["idsewa"];
+                    if ($row["konfirmasi"] == "Terkonfirmasi") {
+                      // tampilkan tombol Bayar dan Hapus
+                      echo '';
+                    } else {
+                      // tampilkan tombol Detail
+                      echo ' <button type="button" class="btn btn-inti" data-bs-toggle="modal" data-bs-target="#konfirmasiModal' . $idsewa . '"><i class="bi bi-check2-square"></i>
                   Konfir
                 </button>
                 <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#hapusModal' . $idsewa . '"><i class="bi bi-trash"></i>
                   Hapus
                 </button>
                 ';
-                }
-                ?>
-              </td>
-              </tr>
-              <!-- Modal Konfirmasi -->
-              <div class="modal fade" id="konfirmasiModal<?= $row["idsewa"]; ?>" tabindex="-1" aria-labelledby="konfirmasiModalLabel" aria-hidden="true">
-                <div class="modal-dialog">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <h5 class="modal-title" id="konfirmasiModalLabel">Konfirmasi Pesanan <?= $row["nama_lengkap"]; ?></h5>
-                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                      <p>Anda yakin ingin mengkonfirmasi pesanan ini?</p>
-                    </div>
-                    <div class="modal-footer">
-                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
-                      <a href="./controller/konfirmasiPesan.php?id=<?= $row["idsewa"]; ?>" class="btn btn-primary">Konfirmasi</a>
+                    }
+                    ?>
+                  </td>
+                </tr>
+                <!-- Modal Konfirmasi -->
+                <div class="modal fade" id="konfirmasiModal<?= $row["idsewa"]; ?>" tabindex="-1" aria-labelledby="konfirmasiModalLabel" aria-hidden="true">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="konfirmasiModalLabel">Konfirmasi Pesanan <?= $row["nama_lengkap"]; ?></h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                      </div>
+                      <div class="modal-body">
+                        <p>Anda yakin ingin mengkonfirmasi pesanan ini?</p>
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
+                        <a href="./controller/konfirmasiPesan.php?id=<?= $row["idsewa"]; ?>" class="btn btn-primary">Konfirmasi</a>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
-              <!-- End Modal Konfirmasi -->
+                <!-- End Modal Konfirmasi -->
 
-              <!-- Modal Hapus -->
-              <div class="modal fade" id="hapusModal<?= $row["idsewa"]; ?>" tabindex="-1" aria-labelledby="konfirmasiModalLabel" aria-hidden="true">
-                <div class="modal-dialog">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <h5 class="modal-title" id="hapusModalLabel">Hapus Pesanan <?= $row["nama_lengkap"]; ?></h5>
-                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                      <p>Anda yakin ingin menghapus pesanan ini?</p>
-                    </div>
-                    <div class="modal-footer">
-                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
-                      <a href="./controller/hapusPesan.php?id=<?= $row["idsewa"]; ?>" class="btn btn-danger">Hapus</a>
+                <!-- Modal Hapus -->
+                <div class="modal fade" id="hapusModal<?= $row["idsewa"]; ?>" tabindex="-1" aria-labelledby="konfirmasiModalLabel" aria-hidden="true">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="hapusModalLabel">Hapus Pesanan <?= $row["nama_lengkap"]; ?></h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                      </div>
+                      <div class="modal-body">
+                        <p>Anda yakin ingin menghapus pesanan ini?</p>
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
+                        <a href="./controller/hapusPesan.php?id=<?= $row["idsewa"]; ?>" class="btn btn-danger">Hapus</a>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
-              <!-- End Modal Konfirmasi -->
-            <?php endforeach; ?>
-          </tbody>
-        </table>
+                <!-- End Modal Konfirmasi -->
+              <?php endforeach; ?>
+            </tbody>
+          </table>
         </div>
 
         <ul class="pagination">
@@ -191,44 +194,44 @@ JOIN bayar ON sewa.idsewa = bayar.idsewa LIMIT $awalData, $jmlHalamanPerData");
         </ul>
 
       </div>
-          <div style="display: none;">
-          <table class="table table-striped mt-3" id="print">
+      <div style="display: none;">
+        <table class="table table-striped mt-3" id="print">
           <thead class="table" style="background-color:#9cd203 ;">
             <tr>
-            <th scope="col" style="text-align: center; vertical-align: middle;">No</th>
-            <th scope="col" style="text-align: center; vertical-align: middle;">Nama Customer</th>
-            <th scope="col" style="text-align: center; vertical-align: middle;">Tanggal Pesan</th>
-            <th scope="col" style="text-align: center; vertical-align: middle;">Tanggal Main</th>
-            <th scope="col" style="text-align: center; vertical-align: middle;">Jam Habis</th>
-            <th scope="col" style="text-align: center; vertical-align: middle;">Lama Main</th>
-            <th scope="col" style="text-align: center; vertical-align: middle;">Total</th>
-            <th scope="col" style="text-align: center; vertical-align: middle;">Bukti</th>
-            <th scope="col" style="text-align: center; vertical-align: middle;">Konfirmasi</th>
-            <!-- <th scope="col" style="text-align: center; vertical-align: middle;">Aksi</th> -->
+              <th scope="col" style="text-align: center; vertical-align: middle;">No</th>
+              <th scope="col" style="text-align: center; vertical-align: middle;">Nama Customer</th>
+              <th scope="col" style="text-align: center; vertical-align: middle;">Tanggal Pesan</th>
+              <th scope="col" style="text-align: center; vertical-align: middle;">Tanggal Main</th>
+              <th scope="col" style="text-align: center; vertical-align: middle;">Jam Habis</th>
+              <th scope="col" style="text-align: center; vertical-align: middle;">Lama Main</th>
+              <th scope="col" style="text-align: center; vertical-align: middle;">Total</th>
+              <th scope="col" style="text-align: center; vertical-align: middle;">Bukti</th>
+              <th scope="col" style="text-align: center; vertical-align: middle;">Konfirmasi</th>
+              <!-- <th scope="col" style="text-align: center; vertical-align: middle;">Aksi</th> -->
             </tr>
           </thead>
           <tbody class="" id="searchResults">
             <?php $i = 1; ?>
             <?php foreach ($pesan as $row) : ?>
               <tr>
-              <td style="text-align: center; vertical-align: middle;"><?= $i++; ?></td>
-              <td style="text-align: center; vertical-align: middle;"><?= $row["nama_lengkap"]; ?></td>
-              <td style="text-align: center; vertical-align: middle;"><?= $row["tgl_pesan"]; ?></td>
-              <td style="text-align: center; vertical-align: middle;"><?= $row["jmulai"]; ?></td>
-              <td style="text-align: center; vertical-align: middle;"><?= $row["jhabis"]; ?></td>
-              <td style="text-align: center; vertical-align: middle;"><?= $row["lama"]; ?></td>
-              <td style="text-align: center; vertical-align: middle;"><?= $row["tot"]; ?></td>
-              <td style="text-align: center; vertical-align: middle;"><img src="../img/<?= $row["bukti"]; ?>" width="100" height="100"></td>
-              <td style="text-align: center; vertical-align: middle;"><?= $row["konfirmasi"]; ?></td>
+                <td style="text-align: center; vertical-align: middle;"><?= $i++; ?></td>
+                <td style="text-align: center; vertical-align: middle;"><?= $row["nama_lengkap"]; ?></td>
+                <td style="text-align: center; vertical-align: middle;"><?= $row["tgl_pesan"]; ?></td>
+                <td style="text-align: center; vertical-align: middle;"><?= $row["jmulai"]; ?></td>
+                <td style="text-align: center; vertical-align: middle;"><?= $row["jhabis"]; ?></td>
+                <td style="text-align: center; vertical-align: middle;"><?= $row["lama"]; ?></td>
+                <td style="text-align: center; vertical-align: middle;"><?= $row["tot"]; ?></td>
+                <td style="text-align: center; vertical-align: middle;"><img src="../img/<?= $row["bukti"]; ?>" width="100" height="100"></td>
+                <td style="text-align: center; vertical-align: middle;"><?= $row["konfirmasi"]; ?></td>
               </tr>
             <?php endforeach; ?>
           </tbody>
         </table>
-          </div>
+      </div>
 
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
 
-            <script>
+      <script>
         document.addEventListener("DOMContentLoaded", function() {
           const searchInput = document.getElementById("searchInput");
           const rows = document.querySelectorAll("#searchResults tr");
@@ -260,13 +263,19 @@ JOIN bayar ON sewa.idsewa = bayar.idsewa LIMIT $awalData, $jmlHalamanPerData");
 
 
         function printTable() {
-        var printContents = document.getElementById("print").outerHTML;
-        var originalContents = document.body.innerHTML;
-        document.body.innerHTML = printContents;
-        window.print();
-        document.body.innerHTML = originalContents;
-}
+          var printContents = document.getElementById("print").outerHTML;
+          var originalContents = document.body.innerHTML;
+          document.body.innerHTML = printContents;
+          window.print();
+          document.body.innerHTML = originalContents;
+        }
+
+        function exportToExcel() {
+          var table2excel = new Table2Excel();
+          table2excel.export(document.querySelectorAll("table.table"));
+        }
       </script>
+      <script src="/admin/table2excel.js"></script>
 </body>
 
 </html>

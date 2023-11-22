@@ -186,7 +186,7 @@ if (isset($_POST["simpan"])) {
     <main class="contain" data-aos="fade-right" data-aos-duration="1000">
       <h1 class="text-light">Sehatkan Dirimu Dengan Berolahraga di <span>Zona</span> Center </h1>
       <p>
-        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Placeat, numquam!
+        Futsal: Energi di atas Lapangan!
       </p>
       <a href="user/lapangan.php" class="btn btn-inti">Booking Sekarang</a>
     </main>
