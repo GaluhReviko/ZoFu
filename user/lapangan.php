@@ -14,12 +14,12 @@ $profil = query("SELECT * FROM user WHERE id_user = '$id'")[0];
 if (isset($_POST["simpan"])) {
   if (edit($_POST) > 0) {
     echo "<script>
-          alert('Berhasil Diubah');
+          alert('Profil berhasil diubah');
           window.location.href = 'lapangan.php';
           </script>";
   } else {
     echo "<script>
-          alert('Gagal Diubah');
+          alert('Profil gagal giubah');
           </script>";
   }
 }
@@ -28,12 +28,12 @@ if (isset($_POST["simpan"])) {
 if (isset($_POST["pesan"])) {
   if (pesan($_POST) > 0) {
     echo "<script>
-          alert('Berhasil Di Pesan');
+          alert('Lapangan berhasil di pesan');
           document.location.href = 'bayar.php';
           </script>";
   } else {
     echo "<script>
-          alert('Gagal Di Pesan');
+          alert('Lapangan gagal di pesan');
           </script>";
   }
 }
@@ -227,29 +227,6 @@ if (isset($_POST["pesan"])) {
                             <label for="exampleInputPassword1" class="form-label">Lama Main</label>
                             <input type="number" name="jam_mulai" class="form-control" id="exampleInputPassword1">
                           </div>
-                        </div>
-                        <div class="mb-3">
-                          <table id="seatsDiagram">
-                            <tr>
-                              <td id="seat-1" data-name="1">08:00</td>
-                              <td id="seat-2" data-name="2">09:00</td>
-                              <td id="seat-3" data-name="3">10:00</td>
-                              <td id="seat-4" data-name="4">11:00</td>
-                              <td id="seat-5" data-name="5">12:00</td>
-                              <td id="seat-6" data-name="6">13:00</td>
-                              <td id="seat-7" data-name="7">14:00</td>
-                              <td id="seat-8" data-name="8">15:00</td>
-                              <td id="seat-9" data-name="9">16:00</td>
-                              <td id="seat-10" data-name="10">17:00</td>
-                              <td id="seat-11" data-name="11">18:00</td>
-                              <td id="seat-12" data-name="12">19:00</td>
-                              <td id="seat-13" data-name="13">20:00</td>
-                              <td id="seat-14" data-name="14">21:00</td>
-                              <td id="seat-15" data-name="15">22:00</td>
-                              <td id="seat-16" data-name="16">23:00</td>
-                              <td id="seat-17" data-name="17">24:00</td>
-                            </tr>
-                          </table>
                         </div>
                       </div>
                     </div>

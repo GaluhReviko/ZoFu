@@ -106,7 +106,7 @@ function pesan($data)
   $habis_datetime_local = date('Y-m-d\TH:i:s', strtotime($habis)); // mengubah format waktu dari Y-m-d\TH:i ke format datetime-local
   $habis = $habis_datetime_local; // menyimpan hasil ke dalam variabel $habis_datetime_local
   $harga = $data["harga"];
-  $total = date("H", strtotime($lama)) * $harga;
+  $total = intval($lama) * $harga;
 
   mysqli_query($conn, "INSERT INTO sewa (iduser, idlap,lama,jmulai,jhabis,harga,tot) VALUES ('$userid','$idlpg','$lama','$mulai','$habis','$harga','$total') ");
 

@@ -180,7 +180,7 @@ if (isset($_POST["simpan"])) {
   <!-- Jumbotron -->
   <section class="jumbotron" id="home">
     <main class="contain" data-aos="fade-right" data-aos-duration="1000">
-      <h1 class="text-light">Sehatkan Dirimu Dengan Berolahraga di <span>Zona</span> Center </h1>
+      <h1 class="text-light">Sehatkan Dirimu Dengan Berolahraga di <span>Zona</span> Futsal </h1>
       <p>
         Futsal: Energi di atas Lapangan!
       </p>

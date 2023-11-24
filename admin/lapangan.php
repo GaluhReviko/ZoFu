@@ -25,12 +25,12 @@ $lapangan = query("SELECT * FROM lapangan LIMIT $awalData, $jmlHalamanPerData");
 if (isset($_POST["simpan"])) {
   if (tambahLpg($_POST) > 0) {
     echo "<script>
-          alert('Data lapangan berhasil ditambahkan');
+          alert('Lapangan baru berhasil ditambahkan');
           Location:'admin/lapangan.php';
           </script>";
   } else {
     echo "<script>
-          alert('Data lapangan gagal ditambahkan');
+          alert('Lapangan baru gagal ditambahkan');
           Location:'admin/lapangan.php';
           </script>";
   }
@@ -39,12 +39,12 @@ if (isset($_POST["simpan"])) {
 if (isset($_POST["edit"])) {
   if (editLpg($_POST) > 0) {
     echo "<script>
-          alert('Lapangan berhasil di edit');
+          alert('Lapangan berhasil di update');
           Location:'admin/lapangan.php';
           </script>";
   } else {
     echo "<script>
-          alert('Lapangan berhasil di edit');
+          alert('Lapangan berhasil di update');
           Location:'admin/lapangan.php';
           </script>";
   }

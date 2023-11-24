@@ -40,12 +40,12 @@ $profil = query("SELECT * FROM user WHERE id_user = '$id_user'")[0];
 if (isset($_POST["simpan"])) {
   if (edit($_POST) > 0) {
     echo "<script>
-          alert('Berhasil Diubah');
+          alert('Profil berhasil diubah');
           window.location.href = 'bayar.php';
           </script>";
   } else {
     echo "<script>
-          alert('Gagal Diubah');
+          alert('Profil gagal diubah');
           </script>";
   }
 }
@@ -54,12 +54,12 @@ if (isset($_POST["simpan"])) {
 if (isset($_POST["bayar"])) {
   if (bayar($_POST) > 0) {
     echo "<script>
-          alert('Berhasil Di Bayar!');
+          alert('Pesanan berhasil di bayar!');
           document.location.href = 'lapangan.php';
           </script>";
   } else {
     echo "<script>
-          alert('Gagal Bayar!');
+          alert('Pesanan gagal dibayar!');
           </script>";
   }
 }

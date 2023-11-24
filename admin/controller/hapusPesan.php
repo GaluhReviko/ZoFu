@@ -5,14 +5,14 @@ $id_sewa = $_GET["id"];
 if (hapusPesan($id_sewa) > 0) {
   echo "
   <script>
-    alert('Data pesanan berhasil dihapus');
+    alert('Pesanan berhasil dihapus');
     document.location.href = '../pesan.php'; 
   </script>
   ";
 } else {
   echo "
   <script>
-    alert('Data pesanan gagal untuk dihapus');
+    alert('Pesanan gagal untuk dihapus');
     document.location.href = '../pesan.php'; 
   </script>
   ";

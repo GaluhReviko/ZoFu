@@ -5,14 +5,14 @@ $idsewa = $_GET["id"];
 if (konfirmasi($idsewa) > 0) {
   echo "
   <script>
-    alert('Data pesanan berhasil dikonfirmasi');
+    alert('Pesanan berhasil dikonfirmasi');
     document.location.href = '../pesan.php'; 
   </script>
   ";
 } else {
   echo "
   <script>
-    alert('Data pesanan gagal untuk dihapus');
+    alert('Pesanan gagal untuk dihapus');
     document.location.href = '../pesan.php'; 
   </script>
   ";
