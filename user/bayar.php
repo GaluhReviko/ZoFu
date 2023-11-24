@@ -29,7 +29,9 @@ $sewa = query("SELECT sewa.*, lapangan.nm, bayar.bukti, bayar.konfirmasi
 FROM sewa
 JOIN lapangan ON sewa.idlap = lapangan.idlap
 left JOIN bayar ON sewa.idsewa = bayar.idsewa
-WHERE sewa.iduser = '$id_user' LIMIT $awalData, $jmlHalamanPerData");
+WHERE sewa.iduser = '$id_user' 
+ORDER BY sewa.tgl_pesan DESC
+LIMIT $awalData, $jmlHalamanPerData");
 // Pagination
 
 $profil = query("SELECT * FROM user WHERE id_user = '$id_user'")[0];
@@ -39,6 +41,7 @@ if (isset($_POST["simpan"])) {
   if (edit($_POST) > 0) {
     echo "<script>
           alert('Berhasil Diubah');
+          window.location.href = 'bayar.php';
           </script>";
   } else {
     echo "<script>
@@ -127,7 +130,7 @@ if (isset($_POST["bayar"])) {
           <div class="modal-body">
             <div class="row">
               <div class="col-4 my-5">
-                <img src="../img/<?= $profil["foto"]; ?>" alt="Foto Profil" class="img-fluid ">
+                <img src="../img/user.png" alt="Foto Profil" class="img-fluid ">
               </div>
               <div class="col-8">
                 <h5 class="mb-3"><?= $profil["nama_lengkap"]; ?></h5>
@@ -155,11 +158,10 @@ if (isset($_POST["bayar"])) {
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <form action="" method="POST" enctype="multipart/form-data">
-          <input type="hidden" name="fotoLama" class="form-control" id="exampleInputPassword1" value="<?= $profil["foto"]; ?>">
           <div class="modal-body">
             <div class="row justify-content-center align-items-center">
               <div class="mb-3">
-                <img src="../img/<?= $profil["foto"]; ?>" alt="Foto Profil" class="img-fluid ">
+                <img src="../img/user.png" alt="Foto Profil" class="img-fluid ">
               </div>
               <div class="col">
                 <div class="mb-3">
@@ -187,10 +189,6 @@ if (isset($_POST["bayar"])) {
               <div class="mb-3">
                 <label for="exampleInputPassword1" class="form-label">alamat</label>
                 <input type="text" name="alamat" class="form-control" id="exampleInputPassword1" value="<?= $profil["alamat"]; ?>">
-              </div>
-              <div class="mb-3">
-                <label for="exampleInputPassword1" class="form-label">Foto : </label>
-                <input type="file" name="foto" class="form-control" id="exampleInputPassword1">
               </div>
             </div>
           </div>

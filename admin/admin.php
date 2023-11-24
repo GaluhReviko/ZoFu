@@ -176,7 +176,7 @@ if (isset($_POST["edit"])) {
                           <!-- konten form modal -->
                           <div class="row justify-content-center align-items-center">
                             <div class="mb-3">
-                              <img src="../img/user.png" alt="gambar lapangan" class="img-fluid" width="70%" height="70%">
+                              <img src="../img/user.png" alt="gambar lapangan" class="img-fluid" width="20%" height="20%">
                             </div>
                             <div class="col">
                               <div class="mb-3">

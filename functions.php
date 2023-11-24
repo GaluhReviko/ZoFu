@@ -55,11 +55,7 @@ function daftar($data)
   $hp = $data["hp"];
   $alamat = $data["alamat"];
   $gender = $data["gender"];
-  //Upload Gambar
-  $upload = upload();
-  if (!$upload) {
-    return false;
-  }
+
 
   $result = mysqli_query($conn, "SELECT email FROM user WHERE email = '$username'");
 
@@ -69,7 +65,7 @@ function daftar($data)
         </script>";
     return false;
   }
-  mysqli_query($conn, "INSERT INTO user (email,password,hp,jenis_kelamin,nama_lengkap,alamat,foto) VALUES ('$username','$password','$hp','$gender','$nama','$alamat','$upload')");
+  mysqli_query($conn, "INSERT INTO user (email,password,hp,jenis_kelamin,nama_lengkap,alamat) VALUES ('$username','$password','$hp','$gender','$nama','$alamat')");
   return mysqli_affected_rows($conn);
 }
 
@@ -81,18 +77,14 @@ function edit($data)
   $username = strtolower(stripslashes($data["email"]));
   $nama = $data["nama_lengkap"];
   $hp = $data["hp"];
+  $alamat = $data["alamat"];
   $gender = $data["jenis_kelamin"];
-  //Upload Gambar
-  $upload = upload();
-  if (!$upload) {
-    return false;
-  }
 
   $query = "UPDATE user SET email = '$username', 
   nama_lengkap = '$nama',
   hp = '$hp',
-  jenis_kelamin = '$gender',
-  foto = '$upload'
+  alamat = '$alamat',
+  jenis_kelamin = '$gender'
   WHERE id_user = '$userid'
   ";
 

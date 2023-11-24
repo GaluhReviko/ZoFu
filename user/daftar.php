@@ -95,10 +95,6 @@ if (isset($_POST["daftar"])) {
             </label>
           </div>
         </div>
-        <div class="mb-3">
-          <label for="exampleInputPassword1" class="form-label">Foto</label>
-          <input type="file" name="foto" class="form-control" id="exampleInputPassword1" required>
-        </div>
         <div class="mt-3 mb-4">
           <button class="button btn-inti" name="daftar" id="daftar">Daftar</button>
         </div>

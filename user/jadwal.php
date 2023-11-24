@@ -30,6 +30,7 @@ $profil = query("SELECT * FROM user WHERE id_user = '$id_user'")[0];
   <link rel="stylesheet" href="../style.css">
   <link rel="icon" href="/img/soccer-ground.ico">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
   <script src="https://unpkg.com/feather-icons"></script>
 </head>
 
@@ -82,7 +83,7 @@ $profil = query("SELECT * FROM user WHERE id_user = '$id_user'")[0];
           <div class="modal-body">
             <div class="row">
               <div class="col-4 my-5">
-                <img src="../img/<?= $profil["foto"]; ?>" alt="Foto Profil" class="img-fluid ">
+                <img src="../img/user.png" alt="Foto Profil" class="img-fluid ">
               </div>
               <div class="col-8">
                 <h5 class="mb-3"><?= $profil["nama_lengkap"]; ?></h5>
@@ -110,7 +111,6 @@ $profil = query("SELECT * FROM user WHERE id_user = '$id_user'")[0];
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <form action="" method="POST" enctype="multipart/form-data">
-          <input type="hidden" name="fotoLama" class="form-control" id="exampleInputPassword1" value="<?= $profil["foto"]; ?>">
           <div class="modal-body">
             <div class="row justify-content-center align-items-center">
               <div class="mb-3">
@@ -143,10 +143,6 @@ $profil = query("SELECT * FROM user WHERE id_user = '$id_user'")[0];
                 <label for="exampleInputPassword1" class="form-label">alamat</label>
                 <input type="text" name="alamat" class="form-control" id="exampleInputPassword1" value="<?= $profil["alamat"]; ?>">
               </div>
-              <div class="mb-3">
-                <label for="exampleInputPassword1" class="form-label">Foto : </label>
-                <input type="file" name="foto" class="form-control" id="exampleInputPassword1">
-              </div>
             </div>
           </div>
           <div class="modal-footer">
@@ -163,8 +159,15 @@ $profil = query("SELECT * FROM user WHERE id_user = '$id_user'")[0];
     <div class="container-fluid">
       <h2 class="text-head"><span>Jadwal</span> Lapangan </h2>
       <form action="" method="post" class="px-4">
-        <table class="table my-5">
-          <thead>
+      <div class="input-group rounded mt-2">
+          <input type="search" class="form-control rounded" id="searchInput" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
+          <span class="input-group-text border-0" id="search-addon">
+            <i class="bi bi-search"></i>
+          </span>
+        </div>
+        <div style="overflow:auto; height:600px; margin-bottom:20px; margin-top:3px;">
+        <table class="table my-3">
+          <thead class="table table-light" style="position: sticky; top:0; z-index:1; ">
             <tr>
               <th scope="col">No</th>
               <th scope="col">Tanggal Pesan</th>
@@ -175,7 +178,7 @@ $profil = query("SELECT * FROM user WHERE id_user = '$id_user'")[0];
               <th scope="col">jam Habis</th>
             </tr>
           </thead>
-          <tbody>
+          <tbody id="searchResults">
             <?php $i = 1; ?>
             <?php foreach ($sewa as $row) : ?>
               <tr>
@@ -323,6 +326,7 @@ $profil = query("SELECT * FROM user WHERE id_user = '$id_user'")[0];
             <?php endforeach; ?>
           </tbody>
         </table>
+        </div>
       </form>
     </div>
   </section>
@@ -340,6 +344,35 @@ $profil = query("SELECT * FROM user WHERE id_user = '$id_user'")[0];
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
   <script>
     feather.replace();
+
+    document.addEventListener("DOMContentLoaded", function() {
+      const searchInput = document.getElementById("searchInput");
+      const rows = document.querySelectorAll("#searchResults tr");
+
+      searchInput.addEventListener("input", function() {
+        const searchQuery = searchInput.value.toLowerCase();
+
+        rows.forEach((row) => {
+          const cells = row.getElementsByTagName("td");
+          let rowContainsQuery = false;
+
+          for (let i = 0; i < cells.length; i++) {
+            const cellText = cells[i].textContent.toLowerCase();
+
+            if (cellText.includes(searchQuery)) {
+              rowContainsQuery = true;
+              break;
+            }
+          }
+
+          if (rowContainsQuery) {
+            row.style.display = "";
+          } else {
+            row.style.display = "none";
+          }
+        });
+      });
+    });
   </script>
   <script src="/main2.js"></script>
 </body>
