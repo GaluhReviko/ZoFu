@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 20, 2023 at 08:15 AM
+-- Generation Time: Nov 27, 2023 at 04:56 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -42,10 +42,8 @@ CREATE TABLE `admin` (
 
 INSERT INTO `admin` (`id_user`, `username`, `password`, `nama`, `phone`, `email`) VALUES
 (1, 'admin@admin', 'admin', 'Admin', '08902932', 'admin@admin'),
-(5, 'admin2', 'admin', 'jay', '081222', 'admin2@admin'),
-(6, 'izat', 'admin', 'izazut', '0812223', 'admin3@admin'),
-(8, 'admin3', 'admin', 'heri', '083333', 'admin4@admin'),
-(9, 'jafar', 'admin', 'jafar shodiq', '122345678', 'admin5@admin');
+(5, 'admin2', 'admin', 'jay ayangku', '081222', 'admin2@admin'),
+(10, 'mustika', 'admin', 'mustika ratu', '098907', 'admin3@admin');
 
 -- --------------------------------------------------------
 
@@ -57,7 +55,7 @@ CREATE TABLE `bayar` (
   `idbayar` int(11) NOT NULL,
   `idsewa` int(11) NOT NULL,
   `bukti` text NOT NULL,
-  `tgl_upload` date NOT NULL DEFAULT current_timestamp(),
+  `tgl_upload` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `konfirmasi` varchar(50) NOT NULL DEFAULT 'Belum'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -66,23 +64,20 @@ CREATE TABLE `bayar` (
 --
 
 INSERT INTO `bayar` (`idbayar`, `idsewa`, `bukti`, `tgl_upload`, `konfirmasi`) VALUES
-(55, 123, '64522a4de1d9a.png', '2023-05-03', 'Terkonfirmasi'),
-(57, 124, '6522208360b76.jpg', '2023-10-08', 'Terkonfirmasi'),
-(61, 134, '652ca4784df6e.jpg', '2023-10-16', 'Sudah Bayar'),
-(62, 135, '652dd2d99d32b.jpg', '2023-10-17', 'Sudah Bayar'),
-(63, 136, '652dd2f0247fe.jpg', '2023-10-17', 'Sudah Bayar'),
-(64, 138, '6530a6544c662.jpg', '2023-10-19', 'Terkonfirmasi'),
-(65, 149, '6540aeba7d28a.png', '2023-10-31', 'Sudah Bayar'),
-(66, 150, '6541f5035644f.png', '2023-11-01', 'Sudah Bayar'),
-(67, 151, '6543603c7e5d8.png', '2023-11-02', 'Sudah Bayar'),
-(68, 152, '654cd72461444.jpg', '2023-11-09', 'Sudah Bayar'),
-(69, 146, '654d8f747eddc.jpg', '2023-11-10', 'Sudah Bayar'),
-(70, 154, '654d91aae9f1e.jpg', '2023-11-10', 'Sudah Bayar'),
-(71, 155, '654d96cfce75a.jpg', '2023-11-10', 'Sudah Bayar'),
-(72, 143, '65532383de899.jpg', '2023-11-14', 'Sudah Bayar'),
-(73, 145, '655323add04af.jpg', '2023-11-14', 'Sudah Bayar'),
-(74, 156, '655b033f14356.jpg', '2023-11-20', 'Sudah Bayar'),
-(75, 158, '655b054692c46.jpg', '2023-11-20', 'Sudah Bayar');
+(78, 163, '655d634418e21.jpg', '2023-11-22 02:16:24', 'Terkonfirmasi'),
+(80, 165, '655d658a1e0ae.jpg', '2023-11-22 02:25:59', 'Terkonfirmasi'),
+(83, 170, '655d66161d89d.jpg', '2023-11-22 02:25:35', 'Terkonfirmasi'),
+(84, 169, '655d66269d85d.jpg', '2023-11-22 02:25:40', 'Terkonfirmasi'),
+(85, 173, '655d677cd64f8.jpg', '2023-11-22 02:37:20', 'Terkonfirmasi'),
+(86, 174, '655d68adda1b9.jpg', '2023-11-22 02:37:08', 'Terkonfirmasi'),
+(88, 176, '655d6a4921420.jpg', '2023-11-24 04:17:46', 'Terkonfirmasi'),
+(89, 177, '656045f5aac18.jpg', '2023-11-24 06:43:01', 'Sudah Bayar'),
+(91, 187, '6560bb436b584.jpg', '2023-11-24 15:03:31', 'Sudah Bayar'),
+(92, 188, '6560bb4fde347.jpg', '2023-11-24 15:03:43', 'Sudah Bayar'),
+(93, 189, '6560bbe7307da.jpg', '2023-11-24 15:06:15', 'Sudah Bayar'),
+(94, 190, '6560bd6ea2deb.png', '2023-11-24 15:12:46', 'Sudah Bayar'),
+(95, 193, '6562c5cf8ac53.jpg', '2023-11-26 05:02:23', 'Terkonfirmasi'),
+(96, 194, '6562cf443a250.jpg', '2023-11-26 05:02:16', 'Terkonfirmasi');
 
 -- --------------------------------------------------------
 
@@ -94,7 +89,7 @@ CREATE TABLE `lapangan` (
   `idlap` int(11) NOT NULL,
   `nm` varchar(35) NOT NULL,
   `ket` text NOT NULL,
-  `harga` int(11) NOT NULL,
+  `harga` varchar(255) NOT NULL,
   `foto` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -103,12 +98,15 @@ CREATE TABLE `lapangan` (
 --
 
 INSERT INTO `lapangan` (`idlap`, `nm`, `ket`, `harga`, `foto`) VALUES
-(23, 'Lapangan rumput 1', 'ini lapangan Dewa', 30000, 'footbal.jpg'),
-(24, 'Lapangan rumput 2', 'Ini Lapangan Emas', 10000, 'badmintoon.jpg'),
-(25, 'Lapangan rumput 3', 'Ini Lapangan Silver', 50000, 'basket.jpg'),
-(26, 'Golf', 'Ini Lapangan Golf4', 40000, 'futsal.jpg'),
-(27, 'lapangan polije', 'ini lapangan rumput', 150000, '652dd388017b1.png'),
-(29, 'Lapangan keramik', 'ini lapangan keramik', 1500000, '6541cb3c956dd.png');
+(23, 'Lapangan rumput 1', 'ini lapangan rumput ke-1', '100000', '65602a0a025ab.jpg'),
+(24, 'Lapangan rumput 2', 'ini lapangan rumput ke-2', '10000', '65602a384aef8.jpg'),
+(25, 'Lapangan rumput 3', 'ini lapangan rumput ke-3', '50000', '65602a55def8a.jpg'),
+(26, 'Lapangan rumput 4', 'Ini Lapangan rumput ke-4', '100000', '656029e429467.jpg'),
+(27, 'lapangan rumput 5', 'ini lapangan rumput ke-5', '100000', '65602acd71715.jpg'),
+(29, 'Lapangan rumput 6', 'ini lapangan rumput ke-6', '150000', '6562c68ceb07b.jpg'),
+(32, 'Lapangan keramik', 'ini lapangan keramik', '100000', '6562c6aa7c38c.jpg'),
+(33, 'test', 'ini lapangan test', '1200', '6562c7345bc2e.jpg'),
+(34, 'test 2', 'ini lapangan test', '1350', '6560bda8a834f.png');
 
 -- --------------------------------------------------------
 
@@ -130,7 +128,12 @@ CREATE TABLE `pengeluaran` (
 INSERT INTO `pengeluaran` (`idpengeluaran`, `tanggalpengeluaran`, `keterangan`, `jumlah`) VALUES
 (8, '2023-11-16', 'jaring', '1000'),
 (9, '2023-11-16', 'jaring', '1000'),
-(10, '2023-11-15', 'jaring', '1000');
+(10, '2023-11-15', 'jaring', '1000'),
+(12, '2023-11-21', 'bola', '2000'),
+(14, '2023-11-22', 'bola', '2000'),
+(16, '2023-11-30', 'manusia', '10000'),
+(17, '2023-11-24', 'ihya', '10'),
+(18, '2023-11-27', 'dani', '100000');
 
 -- --------------------------------------------------------
 
@@ -142,12 +145,12 @@ CREATE TABLE `sewa` (
   `idsewa` int(11) NOT NULL,
   `iduser` int(11) NOT NULL,
   `idlap` int(11) NOT NULL,
-  `tgl_pesan` date NOT NULL DEFAULT current_timestamp(),
+  `tgl_pesan` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `lama` int(11) NOT NULL,
   `jmulai` datetime NOT NULL,
   `jhabis` datetime NOT NULL,
-  `harga` int(11) NOT NULL,
-  `tot` int(11) NOT NULL
+  `harga` varchar(255) NOT NULL,
+  `tot` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -155,19 +158,24 @@ CREATE TABLE `sewa` (
 --
 
 INSERT INTO `sewa` (`idsewa`, `iduser`, `idlap`, `tgl_pesan`, `lama`, `jmulai`, `jhabis`, `harga`, `tot`) VALUES
-(123, 98, 23, '2023-05-03', 2, '2023-05-03 16:23:00', '2023-05-03 18:23:00', 30000, 60000),
-(124, 98, 23, '2023-09-04', 2, '2023-09-04 09:00:00', '2023-09-04 11:00:00', 30000, 60000),
-(138, 98, 24, '2023-10-19', 10, '2023-10-19 10:44:00', '2023-10-19 20:44:00', 10000, 100000),
-(143, 98, 24, '2023-10-19', 1, '0000-00-00 00:00:00', '1970-01-01 02:00:00', 10000, 10000),
-(144, 98, 24, '2023-10-21', 1, '2023-10-20 00:00:00', '2023-10-20 01:00:00', 10000, 10000),
-(145, 98, 24, '2023-10-21', 1, '2023-10-21 00:00:00', '2023-10-21 01:00:00', 10000, 10000),
-(146, 98, 24, '2023-10-21', 5, '2023-10-21 00:00:00', '2023-10-21 05:00:00', 10000, 10000),
-(150, 98, 29, '2023-11-01', 1, '2023-11-01 13:49:00', '2023-11-01 14:49:00', 1500000, 1500000),
-(151, 98, 23, '2023-11-02', 1, '2023-11-02 15:38:00', '2023-11-02 16:38:00', 30000, 30000),
-(155, 98, 27, '2023-11-10', 1, '2023-11-10 09:34:00', '2023-11-10 10:34:00', 150000, 150000),
-(156, 100, 23, '2023-11-14', 1, '2023-11-14 13:43:00', '2023-11-14 14:43:00', 30000, 30000),
-(157, 100, 23, '2023-11-16', 2, '2023-11-16 13:44:00', '2023-11-16 15:44:00', 30000, 30000),
-(158, 102, 29, '2023-11-20', 2, '2023-11-20 14:05:00', '2023-11-20 16:05:00', 1500000, 1500000);
+(163, 102, 25, '2023-11-22 02:10:33', 2, '2023-11-22 09:10:00', '2023-11-22 11:10:00', '50000', '50000'),
+(165, 102, 23, '2023-11-22 02:19:09', 1, '2023-01-22 09:18:00', '2023-01-22 10:18:00', '30000', '30000'),
+(169, 101, 29, '2023-11-22 02:22:52', 1, '2023-11-22 09:22:00', '2023-11-22 10:22:00', '1500000', '1500000'),
+(170, 101, 26, '2023-11-22 02:23:06', 3, '2023-11-22 09:23:00', '2023-11-22 12:23:00', '40000', '40000'),
+(173, 101, 27, '2023-11-22 02:28:56', 5, '2023-11-22 09:28:00', '2023-11-22 14:28:00', '150000', '150000'),
+(174, 102, 26, '2023-11-22 02:34:06', 3, '2023-11-30 09:33:00', '2023-11-30 12:33:00', '40000', '40000'),
+(176, 100, 24, '2023-11-22 02:40:31', 2, '2024-01-22 09:40:00', '2024-01-22 11:40:00', '10000', '10000'),
+(177, 100, 32, '2023-11-24 06:42:50', 2, '2023-11-24 13:42:00', '2023-11-24 15:42:00', '100000', '100000'),
+(184, 101, 24, '2023-11-24 14:57:11', 2, '2023-11-24 00:00:00', '2023-11-24 02:00:00', '10000', '20000'),
+(185, 101, 29, '2023-11-24 14:58:24', 4, '2023-11-24 21:58:00', '2023-11-25 01:58:00', '150000', '600000'),
+(187, 100, 25, '2023-11-24 15:00:15', 5, '2023-11-24 22:00:00', '2023-11-25 03:00:00', '50000', '250000'),
+(188, 100, 32, '2023-11-24 15:00:52', 3, '2023-11-24 22:00:00', '2023-11-25 01:00:00', '100000', '300000'),
+(189, 105, 23, '2023-11-24 15:06:03', 4, '2023-11-24 22:05:00', '2023-11-25 02:05:00', '100000', '400000'),
+(190, 101, 33, '2023-11-24 15:12:05', 3, '2023-11-24 22:11:00', '2023-11-25 01:11:00', '1200', '3600'),
+(191, 104, 34, '2023-11-24 15:18:49', 3, '2023-11-24 22:18:00', '2023-11-25 01:18:00', '1350', '4050'),
+(192, 105, 34, '2023-11-24 15:31:04', 5, '2023-11-24 22:30:00', '2023-11-25 03:30:00', '1350', '6750'),
+(193, 106, 32, '2023-11-26 04:12:48', 3, '2023-11-26 11:12:00', '2023-11-26 14:12:00', '100000', '300000'),
+(194, 106, 27, '2023-11-26 04:53:10', 2, '2023-11-26 11:53:00', '2023-11-26 13:53:00', '100000', '200000');
 
 -- --------------------------------------------------------
 
@@ -183,7 +191,6 @@ CREATE TABLE `user` (
   `jenis_kelamin` varchar(10) NOT NULL,
   `nama_lengkap` varchar(60) NOT NULL,
   `alamat` text NOT NULL,
-  `foto` text NOT NULL,
   `reset_token_hash` varchar(64) DEFAULT NULL,
   `reset_token_expires_at` datetime DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
@@ -192,11 +199,13 @@ CREATE TABLE `user` (
 -- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`id_user`, `email`, `password`, `hp`, `jenis_kelamin`, `nama_lengkap`, `alamat`, `foto`, `reset_token_hash`, `reset_token_expires_at`) VALUES
-(98, 'risky12@gmail.com', '123', '08972423', 'Laki-laki', 'Bayu', 'Bekasi', '652dd31a0b8b1.jpg', NULL, NULL),
-(100, 'gantenggaluh805@gmail.com', '$2y$10$N34Ro1ZlBYu5/yw4Pn5uPeRFC', '081222', 'Laki-laki', 'izat', 'Bogor', '653b204adb147.png', '3cf47c23778b7c61641eded08fc8ab8fe8ecf0a33c066f846af96db983253e3c', '2023-11-14 08:18:49'),
-(101, 'user2@user', '123', '081222', 'Perempuan', 'fian', 'Bogor', '654f07b988ca0.jpg', NULL, NULL),
-(102, 'user3@user', '123', '08977677', 'Perempuan', 'agung mandiri', 'jepang', '655b055b995ed.jpg', NULL, NULL);
+INSERT INTO `user` (`id_user`, `email`, `password`, `hp`, `jenis_kelamin`, `nama_lengkap`, `alamat`, `reset_token_hash`, `reset_token_expires_at`) VALUES
+(98, 'risky12@gmail.com', '123', '08972423', 'Laki-laki', 'Bayu', 'Bekasi', NULL, NULL),
+(100, 'gantenggaluh805@gmail.com', '$2y$10$N34Ro1ZlBYu5/yw4Pn5uPeRFC', '081222', 'Laki-laki', 'izat', 'Bogor', '3cf47c23778b7c61641eded08fc8ab8fe8ecf0a33c066f846af96db983253e3c', '2023-11-14 08:18:49'),
+(101, 'user2@user', '123', '081251678', 'Perempuan', 'fian cantikk', 'Bahomo', NULL, NULL),
+(102, 'user3@user', '123', '08977677', 'Perempuan', 'agung mandiri', 'jepang', NULL, NULL),
+(105, 'user11@user', '123', '098765', 'Laki-Laki', 'mustika jaya abadi', 'tanjung hitam', NULL, NULL),
+(106, 'user4@user', '123', '0987889', 'Perempuan', 'elesse ', 'vietnam ', NULL, NULL);
 
 --
 -- Indexes for dumped tables
@@ -231,7 +240,9 @@ ALTER TABLE `pengeluaran`
 -- Indexes for table `sewa`
 --
 ALTER TABLE `sewa`
-  ADD PRIMARY KEY (`idsewa`);
+  ADD PRIMARY KEY (`idsewa`),
+  ADD KEY `iduser` (`iduser`,`idlap`),
+  ADD KEY `sewa_ibfk_1` (`idlap`);
 
 --
 -- Indexes for table `user`
@@ -247,37 +258,53 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `admin`
 --
 ALTER TABLE `admin`
-  MODIFY `id_user` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id_user` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `bayar`
 --
 ALTER TABLE `bayar`
-  MODIFY `idbayar` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=76;
+  MODIFY `idbayar` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=97;
 
 --
 -- AUTO_INCREMENT for table `lapangan`
 --
 ALTER TABLE `lapangan`
-  MODIFY `idlap` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `idlap` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
 --
 -- AUTO_INCREMENT for table `pengeluaran`
 --
 ALTER TABLE `pengeluaran`
-  MODIFY `idpengeluaran` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `idpengeluaran` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `sewa`
 --
 ALTER TABLE `sewa`
-  MODIFY `idsewa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=159;
+  MODIFY `idsewa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=197;
 
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=103;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=107;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `bayar`
+--
+ALTER TABLE `bayar`
+  ADD CONSTRAINT `bayar_ibfk_1` FOREIGN KEY (`idsewa`) REFERENCES `sewa` (`idsewa`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `sewa`
+--
+ALTER TABLE `sewa`
+  ADD CONSTRAINT `sewa_ibfk_1` FOREIGN KEY (`idlap`) REFERENCES `lapangan` (`idlap`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

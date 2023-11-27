@@ -180,7 +180,7 @@ if (isset($_POST["pesan"])) {
   <section class="lapangan" id="lapangan">
     <div class="container">
       <main class="contain" data-aos="fade-right" data-aos-duration="1000">
-        <h2 class="text-head">Lapangan di <span>Sport</span> Center </h2>
+        <h2 class="text-head">Lapangan di <span>Zona</span> Futsal </h2>
         <div class="row row-cols-1 row-cols-md-4">
           <?php foreach ($lapangan as $row) : ?>
             <div class="col">
@@ -249,7 +249,7 @@ if (isset($_POST["pesan"])) {
   <footer class="footer mt-5">
     <div class="bg-light py-4">
       <div class="container text-center">
-        <p class="text-muted mb-0 py-2">© 2023 Zona-Futsal All rights reserved.</p>
+        <p class="text-muted mb-0 py-2">© 2023 <b>Zona-Futsal</b> All rights reserved.</p>
       </div>
     </div>
   </footer>

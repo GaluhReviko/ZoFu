@@ -7,7 +7,7 @@ if ($role !== 'Admin') {
 };
 
 // Pagination
-$jmlHalamanPerData = 5;
+$jmlHalamanPerData = 31;
 $jumlahData = count(query("SELECT * FROM pengeluaran"));
 $jmlHalaman = ceil($jumlahData / $jmlHalamanPerData);
 
@@ -100,7 +100,7 @@ if (isset($_POST["simpan"])) {
                         <input type="date" name="Tanggalpengeluaran" class="form-control" id="exampleInputPassword1">
                       </div>
                       <div class="mb-3">
-                        <label for="exampleInputPassword1" class="form-label">Keterengan</label>
+                        <label for="exampleInputPassword1" class="form-label">Keterangan</label>
                         <input type="text" name="Keterangan" class="form-control" id="exampleInputPassword1">
                       </div>
                     </div>

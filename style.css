@@ -456,22 +456,6 @@ form .txt_field {
 }
 /* End Contact */
 
-/* booking */
-#seatsDiagram td{
-  padding: 1rem;
-  text-align: center;
-  margin: 0.3rem;
-  width: 80px;
-  border: 3px solid var(--bg);
-  display: inline-block;
-  background-color: #ffffff;
-  border-radius: 5px;
-}
-
-#seatsDiagram  td:hover{
-  background-color: var(--primary);
-}
-/* end booking */
 
 .pagination {
   margin-top: -10px; /* Geser elemen ke atas sejauh 20 piksel, ganti dengan angka yang sesuai dengan preferensi Anda */

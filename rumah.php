@@ -92,13 +92,12 @@
     <div id="carouselExampleCaptions" class="carousel carousel-dark slide" data-bs-ride="false">
       <div class="carousel-inner">
         <div class="carousel-item active">
-          <div class="card-group">
+          <div class="d-flex justify-content-center">
             <div class="card">
               <img src="/img/badmintoon.jpg" class="card-img-top" alt="..." />
-
             </div>
             <div class="card">
-              <img src="/img/6473652695671.jpg" class="card-img-top" alt="..." />
+              <img src="/img/futsal.jpg" class="card-img-top" alt="..." />
             </div>
             <div class="card">
               <img src="/img/badmintoon.jpg" class="card-img-top" alt="..." />
@@ -106,7 +105,7 @@
           </div>
         </div>
         <div class="carousel-item">
-          <div class="card-group">
+          <div class="d-flex justify-content-center">
             <div class="card">
               <img src="/img/footbal.jpg" class="card-img-top" alt="..." />
             </div>
@@ -119,7 +118,7 @@
           </div>
         </div>
         <div class="carousel-item">
-          <div class="card-group">
+          <div class="d-flex justify-content-center">
             <div class="card">
               <img src="/img/footbal.jpg" class="card-img-top" alt="..." />
             </div>
@@ -127,7 +126,7 @@
               <img src="/img/futsal.jpg" class="card-img-top" alt="..." />
             </div>
             <div class="card">
-              <img src="/img/6473652695671.jpg" class="card-img-top" alt="..." />
+              <img src="/img/footbal.jpg" class="card-img-top" alt="..." />
             </div>
           </div>
         </div>
@@ -172,61 +171,63 @@
   <!-- Contact -->
   <section id="contact" class="contact" data-aos="fade-down" data-aos-duration="1000">
     <h2><span>Kontak</span> Kami</h2>
-    <p class="text-center m-5">
+    <p class="text-center m-5 mb-0">
       Hubungi kami jika ada saran yang ingin di sampaikan
     </p>
     <div class="row">
-      <div class="col">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3949.326663873338!2d113.72363987491453!3d-8.16980748187607!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd695cfe9894601%3A0xc9639ab1c93a874a!2sZona%20Futsal!5e0!3m2!1sid!2sid!4v1697590001162!5m2!1sid!2sid" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" class="map"></iframe>
-      </div>
-      <div class="col">
-        <div class="card h-100 border-0 rounded-4 shadow-sm">
-          <div class="card-body p-4 pb-0">
-            <div class="d-flex py-2">
-              <div class="flex-shrink-0">
-                <i class="bi bi-geo-alt fs-4"></i>
+      <div class="row align-items-start text-start g-2 pt-4 pb-5">
+        <div class="col-lg-7">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3949.326663873338!2d113.72363987491453!3d-8.16980748187607!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd695cfe9894601%3A0xc9639ab1c93a874a!2sZona%20Futsal!5e0!3m2!1sid!2sid!4v1697590001162!5m2!1sid!2sid" class="rounded-4 shadow-sm" width="100%" height="410" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+        <div class="col-lg-5">
+          <div class="card h-100 border-0 rounded-4 shadow-sm">
+            <div class="card-body p-4 pb-0">
+              <div class="d-flex py-2">
+                <div class="flex-shrink-0">
+                  <i class="bi bi-geo-alt fs-4"></i>
+                </div>
+                <div class="flex-grow-1 ms-3">
+                  <a href="https://maps.app.goo.gl/HF2FSGG89Q4V9B4p6" target="_blank">
+                    <h5 class="mb-1">Address</h5>
+                    <p>Jember, Jawa Timur</p>
+                  </a>
+                </div>
               </div>
-              <div class="flex-grow-1 ms-3">
-                <a href="https://maps.app.goo.gl/HF2FSGG89Q4V9B4p6" target="_blank">
-                  <h5 class="mb-1">Address</h5>
-                  <p>Jember, Jawa Timur</p>
-                </a>
+              <hr class="hr-dotted mt-0">
+              <div class="d-flex py-2">
+                <div class="flex-shrink-0">
+                  <i class="bi bi-whatsapp fs-4"></i>
+                </div>
+                <div class="flex-grow-1 ms-3">
+                  <a href="https://api.whatsapp.com/send?phone=6281232728242&text=Assalamualaikum.." target="_blank">
+                    <h5 class="mb-1">WhatsApp</h5>
+                    <p>+62 812-3272-8242</p>
+                  </a>
+                </div>
               </div>
-            </div>
-            <hr class="hr-dotted mt-0">
-            <div class="d-flex py-2">
-              <div class="flex-shrink-0">
-                <i class="bi bi-whatsapp fs-4"></i>
+              <hr class="hr-dotted mt-0">
+              <div class="d-flex py-2">
+                <div class="flex-shrink-0">
+                  <i class="bi bi-envelope fs-4"></i>
+                </div>
+                <div class="flex-grow-1 ms-3">
+                  <a href="mailto:pesonarembangan@gmail.com" target="_blank">
+                    <h5 class="mb-1">Email</h5>
+                    <p>zonafutsal@gmail.com</p>
+                  </a>
+                </div>
               </div>
-              <div class="flex-grow-1 ms-3">
-                <a href="https://api.whatsapp.com/send?phone=6281232728242&text=Assalamualaikum.." target="_blank">
-                  <h5 class="mb-1">WhatsApp</h5>
-                  <p>+62 812-3272-8242</p>
-                </a>
-              </div>
-            </div>
-            <hr class="hr-dotted mt-0">
-            <div class="d-flex py-2">
-              <div class="flex-shrink-0">
-                <i class="bi bi-envelope fs-4"></i>
-              </div>
-              <div class="flex-grow-1 ms-3">
-                <a href="mailto:zonafutsal@gmail.com" target="_blank">
-                  <h5 class="mb-1">Email</h5>
-                  <p>zonafutsal@gmail.com</p>
-                </a>
-              </div>
-            </div>
-            <hr class="hr-dotted mt-0">
-            <div class="d-flex py-2">
-              <div class="flex-shrink-0">
-                <i class="bi bi-instagram fs-4"></i>
-              </div>
-              <div class="flex-grow-1 ms-3">
-                <a href="" target="_blank">
-                  <h5 class="mb-1">Instagram</h5>
-                  <p>@zonafutsal</p>
-                </a>
+              <hr class="hr-dotted mt-0">
+              <div class="d-flex py-2">
+                <div class="flex-shrink-0">
+                  <i class="bi bi-instagram fs-4"></i>
+                </div>
+                <div class="flex-grow-1 ms-3">
+                  <a href="" target="_blank">
+                    <h5 class="mb-1">Instagram</h5>
+                    <p>@zonafutsal</p>
+                  </a>
+                </div>
               </div>
             </div>
           </div>
@@ -240,7 +241,7 @@
   <footer class="footer mt-5">
     <div class="bg-light py-4">
       <div class="container text-center">
-        <p class="text-muted mb-0 py-2">© 2023 Zona-Futsal All rights reserved.</p>
+        <p class="text-muted mb-0 py-2">© 2023 <b>Zona-Futsal</b> All rights reserved.</p>
       </div>
     </div>
   </footer>
