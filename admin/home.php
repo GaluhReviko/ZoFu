@@ -9,6 +9,29 @@ if ($role !== 'Admin') {
 $lapangan = query("SELECT COUNT(idlap) AS jml_lapangan FROM lapangan")[0];
 $pesanan = query("SELECT COUNT(idbayar) AS jml_sewa FROM bayar")[0];
 $user = query("SELECT COUNT(id_user) AS jml_user FROM user")[0];
+$admin = query("SELECT COUNT(id_user) AS jml_admin FROM admin")[0];
+
+$sqlBulan = "SELECT MONTHNAME(tgl_pesan) AS bulan FROM sewa GROUP BY MONTH(tgl_pesan) ORDER BY MONTH(tgl_pesan)";
+$resultBulan = $conn->query($sqlBulan);
+
+// Query untuk mendapatkan total sewa
+$sqlTotalSewa = "SELECT MONTHNAME(tgl_pesan) AS bulan, SUM(tot) AS total_sewa FROM sewa GROUP BY MONTH(tgl_pesan) ORDER BY MONTH(tgl_pesan)";
+$resultTotalSewa = $conn->query($sqlTotalSewa);
+
+$labels = [];
+$totalSewa = [];
+
+while ($rowBulan = $resultBulan->fetch_assoc()) {
+  $bulan = $rowBulan['bulan'];
+  $labels[] = $bulan;
+
+  $totalSewa[$bulan] = 0;
+}
+
+while ($rowTotalSewa = $resultTotalSewa->fetch_assoc()) {
+  $bulan = $rowTotalSewa['bulan'];
+  $totalSewa[$bulan] = $rowTotalSewa['total_sewa'];
+}
 
 ?>
 <!DOCTYPE html>
@@ -47,7 +70,7 @@ $user = query("SELECT COUNT(id_user) AS jml_user FROM user")[0];
         <!-- Konten -->
         <h3 class="judul">Home</h3>
         <hr>
-        <div class="row row-cols-1 row-cols-md-4 g-3 justify-content-center  gap-3">
+        <div class="row row-cols-1 row-cols-md-5 g-3 justify-content-center gap-5">
           <div class="col">
             <div class="card align-items-center">
               <div class="card-body">
@@ -72,25 +95,71 @@ $user = query("SELECT COUNT(id_user) AS jml_user FROM user")[0];
               </div>
             </div>
           </div>
+          <div class="col">
+            <div class="card align-items-center">
+              <div class="card-body">
+                <h5 class="card-title">Jumlah Admin</h5>
+                <h2 class="card-text text-center"><?= $admin["jml_admin"]; ?></h2>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="announcement">
-          <h3 class="judul">Pengumuman</h3>
-          <hr>
-          <div class="text p-2 mb-2">
-            <p>Perubahan Jadwal Olahraga <br> <br> Kepada seluruh member Sport Center. <br>
-              Kami ingin memberitahukan bahwa terdapat perubahan jadwal olahraga di Sport Center. Mulai hari senin, 29 april 2023. Berikut adalah perubahan jadwal: <br> <br>
-              1. Lorem ipsum dolor sit amet consectetur adipisicing elit. <br>
-              2. Lorem ipsum dolor sit amet. <br>
-              3. Cum, vel dolores sed ab delectus repellat laboriosam. <br>
-              Mohon maaf atas ketidaknyamanan yang ditimbulkan dan terimakasih atas perhatiannya. <br> <br>
-              Salam Olahraga <br>
-              Zona Futsal
-            </p>
+        <div>
+        <hr>
+          <div class="card_chart shadow mt-5" id="myLineChartCard" style="height: 400px; ">
+            <!-- Card Header - Dropdown -->
+            <canvas id="myLineChart" style="width: 100%; height: 100%;"></canvas>
           </div>
         </div>
       </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+    <script>
+      const DATA_COUNT = 12;
+      const NUMBER_CFG = {
+        count: DATA_COUNT,
+        min: -100,
+        max: 100
+      };
+
+      const lineLabels = <?php echo json_encode($labels); ?>;
+      const lineData = {
+        labels: lineLabels,
+        datasets: [{
+          label: 'Lapangan',
+          data: <?php echo json_encode(array_values($totalSewa)); ?>,
+          borderColor: 'red',
+          backgroundColor: 'rgba(255, 0, 0, 0.5)',
+        }]
+      };
+
+      // Add the following code to create a new Chart instance using the provided data
+      var lineCtx = document.getElementById('myLineChart').getContext('2d');
+
+      var lineChart = new Chart(lineCtx, {
+        type: 'line',
+        data: lineData,
+        options: {
+          responsive: true,
+          plugins: {
+            legend: {
+              position: 'top',
+            },
+            title: {
+              display: true,
+              text: 'PENDAPATAN',
+            },
+          },
+          scales: {
+            y: {
+              beginAtZero: true,
+            },
+          },
+        },
+      });
+    </script>
 </body>
 
 </html>

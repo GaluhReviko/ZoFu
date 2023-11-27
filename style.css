@@ -461,21 +461,6 @@ form .txt_field {
   margin-top: -10px; /* Geser elemen ke atas sejauh 20 piksel, ganti dengan angka yang sesuai dengan preferensi Anda */
 }
 
-/* chart */
-.ramai{
-  text-align: center;
-  width: 80%;
-}
-
-#myChart {
-  display: block;
-  margin: 0 auto; /* Mengatur margin horizontal agar berada di tengah */
-  margin-left: 22%; /* Atur margin kiri sesuai kebutuhan */
-  margin-top: 20px; /* Atur margin atas sesuai kebutuhan */
-  max-width: 80%; /* Maksimum lebar grafik */
-}
-/* end chart */
-
 /* Gallery */
 .card {
   border: none; /* Menghilangkan border pada elemen card */
@@ -508,6 +493,11 @@ form .txt_field {
 .card {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Bayangan card-carousel */
   transition: transform 0.3s; /* Transisi saat menghover card-carousel */
+}
+
+.card_chart{
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Bayangan card-carousel */
+  border-radius: 12px;
 }
 
 .card:hover {
