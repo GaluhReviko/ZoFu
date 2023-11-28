@@ -283,7 +283,7 @@ if (isset($_POST["bayar"])) {
                                 <input type="number" name="total" class="form-control border border-danger" id="exampleInputPassword1" value="<?= $row["tot"]; ?>" disabled>
                               </div>
                               <div class="mt-3">
-                                <label for="exampleInputPassword1" class="form-label">Transfer ke : BRI 0892322132 a/n Sport Center</label>
+                                <label for="exampleInputPassword1" class="form-label">Transfer ke : BRI 0892322132 a/n Zona Futsal</label>
                               </div>
                               <div class="mt-3">
                                 <label for="exampleInputPassword1" class="form-label">Upload Bukti</label>

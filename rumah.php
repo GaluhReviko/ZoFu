@@ -144,23 +144,15 @@
   </section>
   <!-- End Gallery -->
 
-  <!-- chart -->
-  <!-- <section class="ramai" id="ramai">
-    <div>
-        <canvas id="myChart"></canvas>
-    </div>
-  </section> -->
-  <!-- end chart -->
-
   <!-- Pembayaran -->
   <section class="pembayaran" id="bayar">
     <h2 data-aos="fade-down" data-aos-duration="1000">
       <span>Tata Cara</span> Pembayaran
     </h2>
-    <p class="text-center">Berikut adalah tata cara pembayaran lapangan pada website Sport Center :</p>
+    <p class="text-center">Berikut adalah tata cara pembayaran lapangan pada website Zona Futsal :</p>
     <ul class="border list-group list-group-flush mt-5">
-      <li class="list-group-item">1. Pengguna harus membuat akun atau mendaftar terlebih dahulu sebagai anggota pada website Zona Futsal.</li>
-      <li class="list-group-item">2. Pengguna dapat memilih jenis lapangan yang tersedia untuk dipesan, serta memilih tanggal dan waktu tertentu.</li>
+      <li class="list-group-item">1. Pengguna harus membuat akun atau mendaftar terlebih dahulu sebagai pengguna pada website Zona Futsal.</li>
+      <li class="list-group-item">2. Pengguna dapat memilih jenis lapangan dan waktu yang tersedia untuk dipesan, serta memilih tanggal dan waktu tertentu.</li>
       <li class="list-group-item">3. Pengguna harus memilih tanggal dan waktu, melihat harga sewa lapangan, mengisi jumlah jam atau durasi, serta melengkapi formulir pemesanan.</li>
       <li class="list-group-item">4. Jika sudah sesuai, pengguna dapat menekan tombol pesan.</li>
       <li class="list-group-item">5. Lalu pengguna akan diarahkan menuju ke menu pembayaran.</li>
