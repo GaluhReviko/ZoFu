@@ -90,7 +90,7 @@ while ($rowTotalSewa = $resultTotalSewa->fetch_assoc()) {
           <div class="col">
             <div class="card align-items-center">
               <div class="card-body">
-                <h5 class="card-title">Jumlah Member</h5>
+                <h5 class="card-title">Jumlah User</h5>
                 <h2 class="card-text text-center"><?= $user["jml_user"]; ?></h2>
               </div>
             </div>
