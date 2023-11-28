@@ -319,9 +319,9 @@ if (isset($_POST["simpan"])) {
                   <i class="bi bi-whatsapp fs-4"></i>
                 </div>
                 <div class="flex-grow-1 ms-3">
-                  <a href="https://api.whatsapp.com/send?phone=6281232728242&text=Assalamualaikum.." target="_blank">
+                  <a href="" target="_blank">
                     <h5 class="mb-1">WhatsApp</h5>
-                    <p>+62 812-3272-8242</p>
+                    <p>+62 812-3200-0991</p>
                   </a>
                 </div>
               </div>
@@ -345,7 +345,7 @@ if (isset($_POST["simpan"])) {
                 <div class="flex-grow-1 ms-3">
                   <a href="" target="_blank">
                     <h5 class="mb-1">Instagram</h5>
-                    <p>@zonafutsal</p>
+                    <p>@Zona Futsal 2</p>
                   </a>
                 </div>
               </div>
