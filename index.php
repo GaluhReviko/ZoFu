@@ -219,14 +219,27 @@ if (isset($_POST["simpan"])) {
       <div class="carousel-item active">
         <div class="d-flex justify-content-center">
           <div class="card">
-            <img src="/img/badmintoon.jpg" class="card-img-top" alt="..." />
+            <img src="/img/lapanganfutsal.jpg" class="card-img-top" alt="..." />
 
           </div>
           <div class="card">
-            <img src="/img/basket.jpg" class="card-img-top" alt="..." />
+            <img src="/img/footbal.jpg" class="card-img-top" alt="..." />
           </div>
           <div class="card">
-            <img src="/img/badmintoon.jpg" class="card-img-top" alt="..." />
+            <img src="/img/futsal.jpg" class="card-img-top" alt="..." />
+          </div>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <div class="d-flex justify-content-center">
+          <div class="card">
+            <img src="/img/futsal.jpg" class="card-img-top" alt="..." />
+          </div>
+          <div class="card">
+            <img src="/img/lapanganfutsal.jpg" class="card-img-top" alt="..." />
+          </div>
+          <div class="card">
+            <img src="/img/footbal.jpg" class="card-img-top" alt="..." />
           </div>
         </div>
       </div>
@@ -239,20 +252,7 @@ if (isset($_POST["simpan"])) {
             <img src="/img/futsal.jpg" class="card-img-top" alt="..." />
           </div>
           <div class="card">
-            <img src="/img/badmintoon.jpg" class="card-img-top" alt="..." />
-          </div>
-        </div>
-      </div>
-      <div class="carousel-item">
-        <div class="d-flex justify-content-center">
-          <div class="card">
-            <img src="/img/footbal.jpg" class="card-img-top" alt="..." />
-          </div>
-          <div class="card">
-            <img src="/img/futsal.jpg" class="card-img-top" alt="..." />
-          </div>
-          <div class="card">
-            <img src="/img/footbal.jpg" class="card-img-top" alt="..." />
+            <img src="/img/lapanganfutsal.jpg" class="card-img-top" alt="..." />
           </div>
         </div>
       </div>
