@@ -157,16 +157,16 @@
     <h2 data-aos="fade-down" data-aos-duration="1000">
       <span>Tata Cara</span> Pembayaran
     </h2>
-    <p class="text-center">Berikut adalah tata cara pembayaran lapangan pada website Sport Center:</p>
+    <p class="text-center">Berikut adalah tata cara pembayaran lapangan pada website Sport Center :</p>
     <ul class="border list-group list-group-flush mt-5">
       <li class="list-group-item">1. Pengguna harus membuat akun atau mendaftar terlebih dahulu sebagai anggota pada website Zona Futsal.</li>
       <li class="list-group-item">2. Pengguna dapat memilih jenis lapangan yang tersedia untuk dipesan, serta memilih tanggal dan waktu tertentu.</li>
-      <li class="list-group-item">3. Pengguna harus memilih tanggal dan waktu, melihat harga sewa lapangan, mengisi jumlah jam atau durasi, melengkapi formulir pemesanan.</li>
-      <li class="list-group-item">4. Bila Dirasa sudah sesuai, pengguna dapat meng klik tombol pesan.</li>
-      <li class="list-group-item">5. Lalu pengguna akan diarahkan menuju menu pembayaran.</li>
-      <li class="list-group-item">5. Lakukan pembayaran ke rekening yang sudah tertera dan upload bukti pembayaran.</li>
-      <li class="list-group-item">5. Setelah upload, tunggu admin menyetujui pembayaran anda.</li>
-      <li class="list-group-item">5. Setelah status sudah di setujui, silahkan datang ke Sport Center sesuai jadwal yang di pesan.</li>
+      <li class="list-group-item">3. Pengguna harus memilih tanggal dan waktu, melihat harga sewa lapangan, mengisi jumlah jam atau durasi, serta melengkapi formulir pemesanan.</li>
+      <li class="list-group-item">4. Jika sudah sesuai, pengguna dapat menekan tombol pesan.</li>
+      <li class="list-group-item">5. Lalu pengguna akan diarahkan menuju ke menu pembayaran.</li>
+      <li class="list-group-item">6. Kemudian lakukan pembayaran ke rekening yang sudah tertera dan upload bukti pembayaran.</li>
+      <li class="list-group-item">7. Setelah di upload, tunggu admin menyetujui pembayaran Anda.</li>
+      <li class="list-group-item">8. Apabila status sudah di setujui, silahkan datang ke Sport Center sesuai jadwal yang telah Anda pesan.</li>
     </ul>
   </section>
   <!-- End Pembayaran -->
@@ -175,7 +175,7 @@
   <section id="contact" class="contact" data-aos="fade-down" data-aos-duration="1000">
     <h2><span>Kontak</span> Kami</h2>
     <p class="text-center m-5 mb-0">
-      Hubungi kami jika ada saran yang ingin di sampaikan
+      Hubungi kami jika ada saran yang ingin di sampaikan.
     </p>
     <div class="row">
       <div class="row align-items-start text-start g-2 pt-4 pb-5">
