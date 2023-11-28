@@ -81,8 +81,8 @@
   </section>
   <!-- End About -->
 
-<!-- Gallery -->
-<section class="gallery" id="gallery">
+  <!-- Gallery -->
+  <section class="gallery" id="gallery">
   <h2 data-aos="fade-down" data-aos-duration="1000">
       <span>Gallery</span> Kami
     </h2>
