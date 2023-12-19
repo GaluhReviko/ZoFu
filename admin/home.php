@@ -6,32 +6,44 @@ if ($role !== 'Admin') {
   header("location:../login.php");
 }
 
-$lapangan = query("SELECT COUNT(idlap) AS jml_lapangan FROM lapangan")[0];
-$pesanan = query("SELECT COUNT(idbayar) AS jml_sewa FROM bayar")[0];
-$user = query("SELECT COUNT(id_user) AS jml_user FROM user")[0];
-$admin = query("SELECT COUNT(id_user) AS jml_admin FROM admin")[0];
+// $lapangan = query("SELECT COUNT(idlap) AS jml_lapangan FROM lapangan")[0];
+// $pesanan = query("SELECT COUNT(idbayar) AS jml_sewa FROM bayar")[0];
+// $user = query("SELECT COUNT(id_user) AS jml_user FROM user")[0];
+// $admin = query("SELECT COUNT(id_user) AS jml_admin FROM admin")[0];
 
-$sqlBulan = "SELECT MONTHNAME(tgl_pesan) AS bulan FROM sewa GROUP BY MONTH(tgl_pesan) ORDER BY MONTH(tgl_pesan)";
-$resultBulan = $conn->query($sqlBulan);
+// $sqlBulan = "SELECT MONTHNAME(s.tgl_pesan) AS bulan 
+//              FROM sewa s
+//              INNER JOIN bayar b ON s.idsewa = b.idsewa
+//              WHERE b.konfirmasi = 'Terkonfirmasi'
+//              GROUP BY MONTH(s.tgl_pesan)
+//              ORDER BY MONTH(s.tgl_pesan)";
+// $resultBulan = $conn->query($sqlBulan);
 
-// Query untuk mendapatkan total sewa
-$sqlTotalSewa = "SELECT MONTHNAME(tgl_pesan) AS bulan, SUM(tot) AS total_sewa FROM sewa GROUP BY MONTH(tgl_pesan) ORDER BY MONTH(tgl_pesan)";
-$resultTotalSewa = $conn->query($sqlTotalSewa);
+// // Query untuk mendapatkan total sewa
+// $sqlTotalSewa = "SELECT MONTHNAME(s.tgl_pesan) AS bulan, 
+//                         SUM(s.tot) AS total_sewa 
+//                  FROM sewa s
+//                  INNER JOIN bayar b ON s.idsewa = b.idsewa
+//                  WHERE b.konfirmasi = 'Terkonfirmasi'
+//                  GROUP BY MONTH(s.tgl_pesan)
+//                  ORDER BY MONTH(s.tgl_pesan)";
+// $resultTotalSewa = $conn->query($sqlTotalSewa);
 
-$labels = [];
-$totalSewa = [];
+// $labels = [];
+// $totalSewa = [];
 
-while ($rowBulan = $resultBulan->fetch_assoc()) {
-  $bulan = $rowBulan['bulan'];
-  $labels[] = $bulan;
+// while ($rowBulan = $resultBulan->fetch_assoc()) {
+//   $bulan = $rowBulan['bulan'];
+//   $labels[] = $bulan;
 
-  $totalSewa[$bulan] = 0;
-}
+//   $totalSewa[$bulan] = 0;
+// }
 
-while ($rowTotalSewa = $resultTotalSewa->fetch_assoc()) {
-  $bulan = $rowTotalSewa['bulan'];
-  $totalSewa[$bulan] = $rowTotalSewa['total_sewa'];
-}
+// while ($rowTotalSewa = $resultTotalSewa->fetch_assoc()) {
+//   $bulan = $rowTotalSewa['bulan'];
+//   $totalSewa[$bulan] = $rowTotalSewa['total_sewa'];
+// }
+
 
 ?>
 <!DOCTYPE html>
@@ -70,46 +82,11 @@ while ($rowTotalSewa = $resultTotalSewa->fetch_assoc()) {
         <!-- Konten -->
         <h3 class="judul">Home</h3>
         <hr>
-        <div class="row row-cols-1 row-cols-md-5 g-3 justify-content-center gap-5">
-          <div class="col">
-            <div class="card align-items-center">
-              <div class="card-body">
-                <h5 class="card-title">Jumlah Lapangan</h5>
-                <h2 class="card-text text-center"><?= $lapangan["jml_lapangan"]; ?></h2>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="card align-items-center">
-              <div class="card-body">
-                <h5 class="card-title">Jumlah Pesanan</h5>
-                <h2 class="card-text text-center"><?= $pesanan["jml_sewa"]; ?></h2>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="card align-items-center">
-              <div class="card-body">
-                <h5 class="card-title">Jumlah User</h5>
-                <h2 class="card-text text-center"><?= $user["jml_user"]; ?></h2>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="card align-items-center">
-              <div class="card-body">
-                <h5 class="card-title">Jumlah Admin</h5>
-                <h2 class="card-text text-center"><?= $admin["jml_admin"]; ?></h2>
-              </div>
-            </div>
-          </div>
+        <div>
+        <iframe title="Report Section" width="1200" height="600" src="https://app.powerbi.com/view?r=eyJrIjoiNzEzNThhNzctMTcyYi00YTk3LWJlMjgtMjUxZTcxMWE0ZTJjIiwidCI6IjUyNjNjYzgxLTU5MTItNDJjNC1hYmMxLWQwZjFiNjY4YjUzMCIsImMiOjEwfQ%3D%3D" frameborder="0" allowFullScreen="true"></iframe>
         </div>
         <div>
-        <hr>
-          <div class="card_chart shadow mt-5" id="myLineChartCard" style="height: 400px; ">
-            <!-- Card Header - Dropdown -->
-            <canvas id="myLineChart" style="width: 100%; height: 100%;"></canvas>
-          </div>
+          <hr>
         </div>
       </div>
     </div>
