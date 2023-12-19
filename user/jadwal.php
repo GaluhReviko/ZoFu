@@ -170,9 +170,6 @@ $profil = query("SELECT * FROM user WHERE id_user = '$id_user'")[0];
           <thead class="table table-light" style="position: sticky; top:0; z-index:1; ">
             <tr>
               <th scope="col">No</th>
-              <th scope="col">Tanggal Pesan</th>
-              <th scope="col">Nama Pemesan</th>
-              <th scope="col">Nama Lapangan</th>
               <th scope="col">Jam Main</th>
               <th scope="col">Lama Sewa</th>
               <th scope="col">jam Habis</th>
@@ -183,9 +180,6 @@ $profil = query("SELECT * FROM user WHERE id_user = '$id_user'")[0];
             <?php foreach ($sewa as $row) : ?>
               <tr>
                 <th scope="row"><?= $i++; ?></th>
-                <td><?= $row["tgl_pesan"] ?></td>
-                <td><?= $row["nama_lengkap"] ?></td>
-                <td><?= $row["nm"] ?></td>
                 <td><?= $row["jmulai"] ?></td>
                 <td><?= $row["lama"] ?></td>
                 <td><?= $row["jhabis"] ?></td>
