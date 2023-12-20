@@ -2,9 +2,30 @@
 session_start();
 require "functions.php";
 
-$id_user = $_SESSION["id_user"];
+if (isset($_SESSION["id_user"])) {
+  $id_user = $_SESSION["id_user"];
 
-$profil = query("SELECT * FROM user WHERE id_user = '$id_user'")[0];
+  // Make sure $id_user is not null and not an empty string before using it
+  if (!empty($id_user)) {
+      // Assuming query() is a function that performs a database query safely
+      $profil = query("SELECT * FROM user WHERE id_user = '$id_user'");
+
+      // Check if the query returned any results
+      if (!empty($profil)) {
+          $user_profile = $profil[0];
+          // Process user profile data here
+      } else {
+          // Handle case when user profile is not found
+          // You might want to redirect to a login page or show an error message
+      }
+  } else {
+      // Handle case when $id_user is empty
+      // You might want to redirect to a login page or show an error message
+  }
+} else {
+  // Handle case when $_SESSION["id_user"] is not set
+  // You might want to redirect to a login page or show an error message
+}
 
 
 if (isset($_POST["simpan"])) {
@@ -108,11 +129,11 @@ if (isset($_POST["simpan"])) {
                 <img src="/img/user.png" alt="Foto Profil" class="img-fluid ">
               </div>
               <div class="col-8">
-                <h5 class="mb-3"><?= $profil["nama_lengkap"]; ?></h5>
-                <p><?= $profil["jenis_kelamin"]; ?></p>
-                <p><?= $profil["email"]; ?></p>
-                <p><?= $profil["hp"]; ?></p>
-                <p><?= $profil["alamat"]; ?></p>
+                <h5 class="mb-3"><?= $user_profile["nama_lengkap"]; ?></h5>
+                <p><?= $user_profile["jenis_kelamin"]; ?></p>
+                <p><?= $user_profile["email"]; ?></p>
+                <p><?= $user_profile["hp"]; ?></p>
+                <p><?= $user_profile["alamat"]; ?></p>
                 <a href="logout.php" class="btn btn-danger">Logout</a>
                 <a href="" data-bs-toggle="modal" data-bs-target="#editProfilModal" class="btn btn-inti">Edit Profil</a>
               </div>
@@ -141,29 +162,29 @@ if (isset($_POST["simpan"])) {
               <div class="col">
                 <div class="mb-3">
                   <label for="exampleInputPassword1" class="form-label">Nama Lengkap</label>
-                  <input type="text" name="nama_lengkap" class="form-control" id="exampleInputPassword1" value="<?= $profil["nama_lengkap"]; ?>">
+                  <input type="text" name="nama_lengkap" class="form-control" id="exampleInputPassword1" value="<?= $user_profile["nama_lengkap"]; ?>">
                 </div>
                 <div class="mb-3">
                   <label for="jenis_kelamin" class="form-label">Jenis Kelamin</label>
                   <select class="form-control" id="jenis_kelamin" name="jenis_kelamin" required>
-                    <option value="Laki-laki" <?php if ($profil['jenis_kelamin'] == 'Laki-laki') echo 'selected'; ?>>Laki-laki</option>
-                    <option value="Perempuan" <?php if ($profil['jenis_kelamin'] == 'Perempuan') echo 'selected'; ?>>Perempuan</option>
+                    <option value="Laki-laki" <?php if ($user_profile['jenis_kelamin'] == 'Laki-laki') echo 'selected'; ?>>Laki-laki</option>
+                    <option value="Perempuan" <?php if ($user_profile['jenis_kelamin'] == 'Perempuan') echo 'selected'; ?>>Perempuan</option>
                   </select>
                 </div>
               </div>
               <div class="col">
                 <div class="mb-3">
                   <label for="exampleInputPassword1" class="form-label">No Telp</label>
-                  <input type="number" name="hp" class="form-control" id="exampleInputPassword1" value="<?= $profil["hp"]; ?>">
+                  <input type="number" name="hp" class="form-control" id="exampleInputPassword1" value="<?= $user_profile["hp"]; ?>">
                 </div>
                 <div class="mb-3">
                   <label for="exampleInputPassword1" class="form-label">Email</label>
-                  <input type="email" name="email" class="form-control" id="exampleInputPassword1" value="<?= $profil["email"]; ?>">
+                  <input type="email" name="email" class="form-control" id="exampleInputPassword1" value="<?= $user_profile["email"]; ?>">
                 </div>
               </div>
               <div class="mb-3">
                 <label for="exampleInputPassword1" class="form-label">alamat</label>
-                <input type="text" name="alamat" class="form-control" id="exampleInputPassword1" value="<?= $profil["alamat"]; ?>">
+                <input type="text" name="alamat" class="form-control" id="exampleInputPassword1" value="<?= $user_profile["alamat"]; ?>">
               </div>
             </div>
           </div>
@@ -184,7 +205,6 @@ if (isset($_POST["simpan"])) {
       <p>
         Futsal: Energi di atas Lapangan!
       </p>
-      <a href="user/lapangan.php" class="btn btn-inti">Booking Sekarang</a>
     </main>
   </section>
   <!-- End Jumbotron -->

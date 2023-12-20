@@ -312,6 +312,15 @@ form .txt_field {
 .jumbotron .contain h1 span {
   color: var(--primary);
 }
+
+@media screen and (max-width: 600px) {
+  .jumbotron .contain h1 {
+    font-size: 2em;
+    text-shadow: 1px 1px 3px rgba(1, 1, 3, 0.5);
+    line-height: 1.2;
+  }
+}
+
 .jumbotron .contain p {
   font-size: 1.4rem;
   margin-top: 1rem;
